@@ -17,7 +17,7 @@ export const Route = createFileRoute("/politique-de-confidentialite")({
       <section><h2>Données collectées</h2><p>Le formulaire de contact prépare un e-mail contenant votre nom, votre adresse e-mail, le nom de votre structure et votre message. Ces données ne sont pas enregistrées sur ce site : elles sont transmises uniquement par votre propre messagerie lors de l'envoi.</p></section>
       <section><h2>Finalité</h2><p>Répondre à votre demande de renseignement ou de devis.</p></section>
       <section><h2>Durée de conservation</h2><p>Les échanges sont conservés 3 ans à compter du dernier contact.</p></section>
-      <section><h2>Mesure d'audience</h2><p>Ce site n'utilise aucun outil de mesure d'audience et ne dépose aucun cookie de suivi.</p></section>
+      <section><h2>Cookies et mesure d'audience</h2><p>Ce site ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience ni de suivi publicitaire.</p></section>
       <section><h2>Vos droits</h2><p>Vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition sur vos données. Pour l'exercer, écrivez à anna.bruyere.zh@gmail.com. Vous pouvez aussi adresser une réclamation à la CNIL (www.cnil.fr).</p></section>
     </LegalLayout>
   ),
