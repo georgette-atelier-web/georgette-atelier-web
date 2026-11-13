@@ -165,7 +165,7 @@ function Index() {
         {/* Méthode */}
         <section id="methode" className="px-5 py-24">
           <div className="mx-auto max-w-6xl">
-            <SectionTitle kicker="Comment ça se passe" title="Quatre étapes, un interlocuteur unique" />
+            <SectionTitle kicker="Comment ça se passe" title="Quatre étapes, une seule interlocutrice" />
             <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 ["Échange", "Un appel gratuit pour comprendre votre activité, vos clients et vos besoins."],
