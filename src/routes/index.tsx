@@ -175,8 +175,8 @@ function Index() {
                 ["Création", "Je conçois votre site et vous le montre au fil de l'eau pour vos retours."],
                 ["Mise en ligne", "Votre site est publié, référencé, et je vous explique comment le faire vivre."],
               ].map(([t, d], i) => (
-                <Reveal key={t} delay={i * 100}>
-                  <li className="relative rounded-2xl border bg-card p-7">
+                <Reveal key={t} delay={i * 100} className="h-full">
+                  <li className="relative h-full rounded-2xl border bg-card p-7">
                     <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary font-display text-lg text-primary-foreground">{i + 1}</span>
                     <h3 className="mt-5 text-lg font-semibold text-foreground">{t}</h3>
                     <p className="mt-2 text-muted-foreground">{d}</p>
