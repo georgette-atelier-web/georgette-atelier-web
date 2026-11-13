@@ -12,6 +12,23 @@ const LINKEDIN = "https://www.linkedin.com/in/anna-bruy%C3%A8re-198813130/";
 const TITLE = "Création de site vitrine à prix fixe | Anna Bruyère, développeuse web";
 const DESC = "Sites vitrine clairs et rapides pour écoles, cabinets, artisans et indépendants. Référencement local, maintenance. Devis gratuit, à partir de 1 000 €.";
 
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Anna Bruyère — Développeuse web freelance",
+  description: DESC,
+  email: EMAIL,
+  url: "/",
+  priceRange: "À partir de 1 000 €",
+  areaServed: [
+    { "@type": "AdministrativeArea", name: "Ardèche" },
+    { "@type": "Country", name: "France" },
+  ],
+  founder: { "@type": "Person", name: "Anna Bruyère", jobTitle: "Développeuse web" },
+  sameAs: [LINKEDIN],
+  knowsAbout: ["Création de site vitrine", "Référencement local", "Google Business Profile", "Maintenance de site web"],
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -21,8 +38,12 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "fr_FR" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(JSON_LD) }],
   }),
   component: Index,
 });
