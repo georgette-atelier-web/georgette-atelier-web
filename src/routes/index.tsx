@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
 import { Reveal } from "@/components/Reveal";
-import portrait from "@/assets/anna-portrait.jpg";
+import portrait from "@/assets/anna-bruyere.jpg";
 import siteEcole from "@/assets/site-ecole.jpg";
 import siteAetius from "@/assets/site-aetius.jpg";
 
@@ -189,7 +189,7 @@ function Index() {
         <section id="a-propos" className="bg-card px-5 py-24">
           <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-[2fr_3fr]">
             <Reveal>
-              <img src={portrait} alt="Portrait d'Anna Bruyère, développeuse web freelance" width={768} height={960} loading="lazy" className="mx-auto w-full max-w-sm rounded-3xl object-cover shadow-2xl shadow-primary/15" />
+              <img src={portrait} alt="Portrait d'Anna Bruyère, développeuse web freelance" width={480} height={482} loading="lazy" className="mx-auto w-full max-w-sm aspect-square rounded-3xl object-cover shadow-2xl shadow-primary/15" />
             </Reveal>
             <Reveal delay={120}>
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">À propos</p>
