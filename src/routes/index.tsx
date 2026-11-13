@@ -135,6 +135,9 @@ function Index() {
                 </Reveal>
               ))}
             </div>
+            <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground">
+              Règlement en 2 ou 3 fois sans frais possible sur les projets de création.
+            </p>
           </div>
         </section>
 
