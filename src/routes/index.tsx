@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
+import { Linkedin } from "lucide-react";
 import { z } from "zod";
 import { Reveal } from "@/components/Reveal";
 import portrait from "@/assets/anna-bruyere.jpg";
@@ -7,6 +8,7 @@ import siteEcole from "@/assets/site-ecole.jpg";
 import siteAetius from "@/assets/site-aetius.jpg";
 
 const EMAIL = "Anna.bruyere.zh@gmail.com";
+const LINKEDIN = "https://www.linkedin.com/in/anna-bruy%C3%A8re-198813130/";
 const TITLE = "Création de site vitrine à prix fixe | Anna Bruyère, développeuse web";
 const DESC = "Sites vitrine clairs et rapides pour écoles, cabinets, artisans et indépendants. Référencement local, maintenance. Devis gratuit, à partir de 1 000 €.";
 
@@ -212,7 +214,10 @@ function Index() {
       <footer className="border-t bg-primary px-5 py-10 text-primary-foreground">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm sm:flex-row">
           <p>© {new Date().getFullYear()} Anna Bruyère — Développeuse web</p>
-          <nav className="flex gap-6" aria-label="Liens légaux">
+          <nav className="flex items-center gap-6" aria-label="Liens légaux et réseaux">
+            <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:underline">
+              <Linkedin className="size-4" aria-hidden="true" /> LinkedIn
+            </a>
             <Link to="/mentions-legales" className="hover:underline">Mentions légales</Link>
             <Link to="/politique-de-confidentialite" className="hover:underline">Politique de confidentialité</Link>
           </nav>
@@ -263,6 +268,7 @@ function Contact() {
               <button type="submit" className={btn}>Envoyer ma demande</button>
               {sent && <p className="text-sm text-primary">Votre messagerie s'ouvre avec votre demande pré-remplie. Il ne reste qu'à l'envoyer !</p>}
               <p className="text-sm text-muted-foreground">Ou écrivez-moi directement : <a href={`mailto:${EMAIL}`} className="font-semibold text-primary hover:underline">{EMAIL}</a></p>
+              <p className="text-sm text-muted-foreground">Retrouvez-moi aussi sur <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-primary hover:underline"><Linkedin className="size-4" aria-hidden="true" /> LinkedIn</a></p>
             </div>
           </form>
         </Reveal>
