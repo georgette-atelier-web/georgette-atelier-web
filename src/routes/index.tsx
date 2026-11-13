@@ -189,7 +189,10 @@ function Index() {
         <section id="a-propos" className="bg-card px-5 py-24">
           <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-[2fr_3fr]">
             <Reveal>
-              <img src={portrait} alt="Portrait d'Anna Bruyère, développeuse web freelance" width={480} height={482} loading="lazy" className="mx-auto w-full max-w-sm aspect-square rounded-3xl object-cover shadow-2xl shadow-primary/15" />
+              <div className="relative mx-auto w-full max-w-xs">
+                <div aria-hidden="true" className="absolute inset-0 translate-x-4 translate-y-4 rounded-t-full rounded-b-3xl border-2 border-accent" />
+                <img src={portrait} alt="Portrait d'Anna Bruyère, développeuse web freelance" width={480} height={482} loading="lazy" className="relative aspect-[4/5] w-full rounded-t-full rounded-b-3xl object-cover shadow-2xl shadow-primary/20 ring-4 ring-card" />
+              </div>
             </Reveal>
             <Reveal delay={120}>
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">À propos</p>
