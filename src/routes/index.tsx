@@ -7,7 +7,7 @@ import portrait from "@/assets/anna-bruyere.jpg";
 import siteEcole from "@/assets/site-ecole.jpg";
 import siteAetius from "@/assets/site-aetius.jpg";
 
-const EMAIL = "Anna.bruyere.zh@gmail.com";
+const EMAIL = "anna.bruyere.zh@gmail.com";
 const LINKEDIN = "https://www.linkedin.com/in/anna-bruy%C3%A8re-198813130/";
 const TITLE = "Création de site vitrine à prix fixe | Anna Bruyère, développeuse web";
 const DESC = "Sites vitrine clairs et rapides pour écoles, cabinets, artisans et indépendants. Référencement local, maintenance. Devis gratuit, à partir de 1 000 €.";
