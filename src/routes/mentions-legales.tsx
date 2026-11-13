@@ -13,7 +13,7 @@ export const Route = createFileRoute("/mentions-legales")({
   }),
   component: () => (
     <LegalLayout title="Mentions légales">
-      <section><h2>Éditeur du site</h2><p>Anna Bruyère, entrepreneuse individuelle — [statut juridique]<br />Adresse : [adresse postale]<br />SIRET : [numéro SIRET]<br />E-mail : Anna.bruyere.zh@gmail.com<br />Téléphone : [numéro de téléphone]</p></section>
+      <section><h2>Éditeur du site</h2><p>Anna Bruyère, entrepreneuse individuelle — [statut juridique]<br />Adresse : [adresse postale]<br />SIRET : [numéro SIRET]<br />E-mail : anna.bruyere.zh@gmail.com<br />Téléphone : [numéro de téléphone]</p></section>
       <section><h2>Directrice de la publication</h2><p>Anna Bruyère</p></section>
       <section><h2>Hébergement</h2><p>[Nom de l'hébergeur]<br />[Adresse de l'hébergeur]<br />[Site ou téléphone de l'hébergeur]</p></section>
       <section><h2>Propriété intellectuelle</h2><p>L'ensemble des contenus de ce site (textes, images, mise en page) est la propriété d'Anna Bruyère, sauf mention contraire. Toute reproduction sans autorisation préalable est interdite.</p></section>
