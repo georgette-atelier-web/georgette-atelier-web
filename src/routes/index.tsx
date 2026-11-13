@@ -191,7 +191,7 @@ function Index() {
             <Reveal>
               <div className="relative mx-auto w-full max-w-xs">
                 <div aria-hidden="true" className="absolute inset-0 translate-x-4 translate-y-4 rounded-t-full rounded-b-3xl border-2 border-accent" />
-                <img src={portrait} alt="Portrait d'Anna Bruyère, développeuse web freelance" width={480} height={482} loading="lazy" className="relative aspect-[4/5] w-full rounded-t-full rounded-b-3xl object-cover shadow-2xl shadow-primary/20 ring-4 ring-card" />
+                <img src={portrait} alt="Portrait d'Anna Bruyère, développeuse web freelance" width={1024} height={1280} loading="lazy" className="relative aspect-[4/5] w-full rounded-t-full rounded-b-3xl object-cover shadow-2xl shadow-primary/20 ring-4 ring-card" />
               </div>
             </Reveal>
             <Reveal delay={120}>
