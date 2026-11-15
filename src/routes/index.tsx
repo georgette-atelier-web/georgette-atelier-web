@@ -54,7 +54,7 @@ export const Route = createFileRoute("/")({
 
 const NAV = [
   ["services", "Services"], ["offres", "Offres"], ["realisations", "Réalisations"],
-  ["methode", "Méthode"], ["a-propos", "À propos"], ["contact", "Contact"],
+  ["methode", "Méthode"], ["a-propos", "À propos"], ["faq", "FAQ"], ["contact", "Contact"],
 ] as const;
 
 function SectionTitle({ kicker, title, intro }: { kicker: string; title: string; intro?: string }) {
@@ -95,6 +95,14 @@ function Header() {
     </header>
   );
 }
+
+const FAQ = [
+  ["Combien de temps faut-il pour créer mon site vitrine ?", "En moyenne, il faut compter entre 2 et 4 semaines à partir du moment où nous validons le devis et rassemblons vos éléments (textes, photos, logo). Le délai dépend surtout de votre réactivité pour relire et valider les étapes."],
+  ["Le site m'appartient-il à 100 % ?", "Oui, absolument. Vous êtes l'unique propriétaire de votre nom de domaine, de vos contenus et du site. Aucun abonnement caché, aucun piège : vous êtes totalement libre."],
+  ["Dois-je fournir moi-même les textes et les photos ?", "Si vous avez déjà des photos et des textes, je les intègre et les optimise pour le web. Si vous partez de zéro, pas d'inquiétude : je vous guide avec une trame simple pour poser vos idées, et je reformule pour que vos pages soient claires et agréables à lire."],
+  ["Mon site sera-t-il adapté aux téléphones et visible sur Google ?", "Oui, tous les sites conçus par Georgette sont pensés en priorité pour smartphone, s'affichent très rapidement et intègrent les bonnes pratiques de référencement naturel (balises, descriptions, vitesse de chargement, plan du site)."],
+  ["Que se passe-t-il après la mise en ligne ?", "Vous avez deux options : gérer votre site en toute autonomie grâce aux explications simples que je vous fournis, ou me confier sa maintenance mensuelle (hébergement, sauvegardes régulières, mises à jour de sécurité et petites modifications de contenu)."],
+] as const;
 
 const btn = "inline-flex items-center justify-center rounded-full bg-primary px-7 py-3.5 font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:bg-primary/90";
 
@@ -240,6 +248,26 @@ function Index() {
               </div>
               <a href="#contact" className={`${btn} mt-8`}>Parlons de votre projet</a>
             </Reveal>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section id="faq" className="px-5 py-24">
+          <div className="mx-auto max-w-3xl">
+            <SectionTitle kicker="Questions fréquentes" title="Vos questions, mes réponses" />
+            <div className="space-y-4">
+              {FAQ.map(([q, a], i) => (
+                <Reveal key={q} delay={i * 60}>
+                  <details className="group rounded-2xl border bg-card p-6 open:shadow-lg open:shadow-primary/5">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-foreground [&::-webkit-details-marker]:hidden">
+                      <h3>{q}</h3>
+                      <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-primary text-primary transition-transform group-open:rotate-45">+</span>
+                    </summary>
+                    <p className="mt-4 leading-relaxed text-muted-foreground">{a}</p>
+                  </details>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
