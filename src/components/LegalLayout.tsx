@@ -6,7 +6,7 @@ export function LegalLayout({ title, children }: { title: string; children: Reac
     <div className="min-h-screen bg-background">
       <header className="border-b">
         <div className="mx-auto max-w-3xl px-5 py-5">
-          <Link to="/" className="font-display text-lg font-semibold text-primary">← Anna Bruyère</Link>
+          <Link to="/" className="font-display text-lg font-semibold text-primary">← Georgette — atelier web</Link>
         </div>
       </header>
       <main className="mx-auto max-w-3xl px-5 py-14">

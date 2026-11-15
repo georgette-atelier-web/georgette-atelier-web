@@ -81,10 +81,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Anna Bruyère — Développeuse web freelance" },
-      { name: "description", content: "Création de sites vitrine à prix fixe pour écoles, cabinets, artisans et indépendants." },
+      { title: "Georgette — atelier web | Développeuse web freelance" },
+      { name: "description", content: "Atelier web en Ardèche : création de sites vitrine à prix fixe pour écoles, cabinets, artisans et indépendants." },
       { name: "author", content: "Anna Bruyère" },
-      { property: "og:site_name", content: "Anna Bruyère" },
+      { property: "og:site_name", content: "Georgette — atelier web" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
