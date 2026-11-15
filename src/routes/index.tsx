@@ -11,7 +11,7 @@ import logo from "@/assets/logo-georgette.png";
 const EMAIL = "anna.bruyere.zh@gmail.com";
 const LINKEDIN = "https://www.linkedin.com/in/anna-bruy%C3%A8re-198813130/";
 const TITLE = "Création de site vitrine à prix fixe | Georgette, atelier web";
-const DESC = "Georgette, atelier web : sites vitrine clairs et rapides pour écoles, cabinets, artisans et indépendants. Développeuse web freelance en Ardèche. Devis gratuit, à partir de 1 000 €.";
+const DESC = "Georgette, atelier web : sites vitrine clairs et rapides pour écoles, cabinets, artisans et indépendants. Développeuse web freelance en France. Devis gratuit, à partir de 1 000 €.";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -75,7 +75,7 @@ function Header() {
           <img src={logo} alt="Logo Georgette : tête de bouledogue français" width={256} height={256} className="h-14 w-14 transition-transform duration-300 group-hover:-rotate-6" />
           <span className="flex flex-col leading-none">
             <span className="font-display text-2xl font-bold italic tracking-tight text-primary">Georgette</span>
-            <span className="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent">— Atelier web · Ardèche —</span>
+            <span className="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent">— Atelier web · France —</span>
           </span>
         </a>
         <nav className="hidden items-center gap-1 text-sm font-semibold lg:flex" aria-label="Navigation principale">
@@ -105,7 +105,7 @@ function Index() {
         <section id="accueil" className="relative overflow-hidden px-5 pb-24 pt-36 sm:pt-44">
           <div aria-hidden className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
           <div className="relative mx-auto max-w-4xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Atelier web en Ardèche</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Atelier web en France</p>
             <h1 className="mt-5 text-4xl font-semibold leading-tight text-foreground sm:text-6xl">
               Votre site web clair, rapide et prêt à convaincre vos clients
             </h1>
