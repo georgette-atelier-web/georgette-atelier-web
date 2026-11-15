@@ -233,7 +233,7 @@ function Index() {
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">À propos</p>
               <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">Bonjour, je suis Anna Bruyère</h2>
               <div className="mt-6 space-y-4 leading-relaxed text-muted-foreground">
-                <p>Développeuse web, j'ai fondé Georgette, un atelier web qui accompagne les petites structures — écoles, cabinets, artisans et indépendants — qui veulent un site sérieux sans se perdre dans la technique.</p>
+                <p>Développeuse web depuis 2020, j'ai fondé Georgette, un atelier web qui accompagne les petites structures — écoles, cabinets, artisans et indépendants — qui veulent un site sérieux sans se perdre dans la technique.</p>
                 <p>Mon approche : écouter, simplifier, livrer un site rapide et facile à comprendre pour vos visiteurs. Vous avez une seule interlocutrice du premier échange à la mise en ligne, et après.</p>
               </div>
               <a href="#contact" className={`${btn} mt-8`}>Parlons de votre projet</a>
