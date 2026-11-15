@@ -6,4 +6,6 @@
 - [x] Icône d'onglet : rendre le bouledogue lisible en tout petit
 - [x] Vérifier l'exportabilité des images/polices pour un hébergement Cloudflare
 - [x] Positionnement visible : « Atelier web en France » à la place de « en Ardèche »
-- [ ] Attendus : numéro SIRET dès réception, nom de domaine avant publication (sitemap Google)
+- [ ] Raccorder le domaine acheté georgette-atelier-web.fr (DNS, domaine primaire, HTTPS)
+- [ ] Mettre à jour URLs canonical / sitemap / données structurées une fois le domaine en ligne
+- [ ] Attendu : numéro SIRET dès réception
