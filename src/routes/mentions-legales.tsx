@@ -3,7 +3,9 @@ import { LegalLayout } from "@/components/LegalLayout";
 
 export const Route = createFileRoute("/mentions-legales")({
   head: () => ({
+    links: [{ rel: "canonical", href: "https://georgette-atelier-web.fr/mentions-legales" }],
     meta: [
+      { property: "og:url", content: "https://georgette-atelier-web.fr/mentions-legales" },
       { title: "Mentions légales — Georgette, atelier web" },
       { name: "description", content: "Mentions légales du site Georgette — atelier web : éditeur, hébergeur et propriété intellectuelle." },
       { property: "og:title", content: "Mentions légales — Georgette, atelier web" },

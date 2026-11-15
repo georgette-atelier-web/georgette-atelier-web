@@ -3,7 +3,9 @@ import { LegalLayout } from "@/components/LegalLayout";
 
 export const Route = createFileRoute("/politique-de-confidentialite")({
   head: () => ({
+    links: [{ rel: "canonical", href: "https://georgette-atelier-web.fr/politique-de-confidentialite" }],
     meta: [
+      { property: "og:url", content: "https://georgette-atelier-web.fr/politique-de-confidentialite" },
       { title: "Politique de confidentialité — Georgette, atelier web" },
       { name: "description", content: "Comment Georgette — atelier web collecte et protège les données envoyées via le formulaire de contact." },
       { property: "og:title", content: "Politique de confidentialité — Georgette, atelier web" },

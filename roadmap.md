@@ -7,5 +7,5 @@
 - [x] Vérifier l'exportabilité des images/polices pour un hébergement Cloudflare
 - [x] Positionnement visible : « Atelier web en France » à la place de « en Ardèche »
 - [ ] Domaine georgette-atelier-web.fr : à connecter par Anna elle-même (Réglages du projet → Domaines)
-- [ ] Une fois le domaine en ligne : canonical, sitemap et données structurées sur l'adresse définitive
+- [x] Canonical, sitemap et données structurées sur georgette-atelier-web.fr
 - [ ] Attendu : numéro SIRET dès réception
