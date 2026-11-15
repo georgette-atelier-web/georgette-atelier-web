@@ -6,6 +6,7 @@ import { Reveal } from "@/components/Reveal";
 import portrait from "@/assets/anna-bruyere.jpg";
 import siteEcole from "@/assets/site-ecole.jpg";
 import siteAetius from "@/assets/site-aetius.jpg";
+import logo from "@/assets/logo-georgette.png";
 
 const EMAIL = "anna.bruyere.zh@gmail.com";
 const LINKEDIN = "https://www.linkedin.com/in/anna-bruy%C3%A8re-198813130/";
@@ -67,19 +68,26 @@ function SectionTitle({ kicker, title, intro }: { kicker: string; title: string;
 function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b bg-background/85 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <a href="#accueil" className="font-display text-xl font-semibold text-primary">Georgette<span className="hidden font-normal text-muted-foreground sm:inline"> — atelier web</span></a>
-        <nav className="hidden gap-7 text-sm font-medium md:flex" aria-label="Navigation principale">
-          {NAV.map(([id, l]) => <a key={id} href={`#${id}`} className="text-muted-foreground transition-colors hover:text-primary">{l}</a>)}
+    <header className="fixed inset-x-0 top-0 z-50 border-b-4 border-double border-primary/70 bg-background/95 backdrop-blur">
+      <div className="h-1.5 bg-[repeating-linear-gradient(90deg,var(--primary)_0_18px,var(--accent)_18px_36px)]" aria-hidden="true" />
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-5">
+        <a href="#accueil" className="group flex items-center gap-3" aria-label="Georgette — atelier web, retour à l'accueil">
+          <img src={logo} alt="Logo Georgette : tête de bouledogue français" width={256} height={256} className="h-14 w-14 transition-transform duration-300 group-hover:-rotate-6" />
+          <span className="flex flex-col leading-none">
+            <span className="font-display text-2xl font-bold italic tracking-tight text-primary">Georgette</span>
+            <span className="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent">— Atelier web · Ardèche —</span>
+          </span>
+        </a>
+        <nav className="hidden items-center gap-1 text-sm font-semibold lg:flex" aria-label="Navigation principale">
+          {NAV.map(([id, l]) => <a key={id} href={`#${id}`} className="rounded-full px-3.5 py-2 uppercase tracking-[0.12em] text-[0.72rem] text-foreground/80 transition-colors hover:bg-primary hover:text-primary-foreground">{l}</a>)}
         </nav>
-        <button className="rounded-md p-2 text-foreground md:hidden" aria-label="Ouvrir le menu" aria-expanded={open} onClick={() => setOpen(!open)}>
-          <span className="block h-0.5 w-6 bg-current" /><span className="mt-1.5 block h-0.5 w-6 bg-current" /><span className="mt-1.5 block h-0.5 w-6 bg-current" />
+        <button className="rounded-full border-2 border-primary p-2.5 text-primary lg:hidden" aria-label="Ouvrir le menu" aria-expanded={open} onClick={() => setOpen(!open)}>
+          <span className="block h-0.5 w-5 bg-current" /><span className="mt-1 block h-0.5 w-5 bg-current" /><span className="mt-1 block h-0.5 w-5 bg-current" />
         </button>
       </div>
       {open && (
-        <nav className="border-t bg-background px-5 py-3 md:hidden" aria-label="Navigation mobile">
-          {NAV.map(([id, l]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)} className="block py-2.5 font-medium text-foreground">{l}</a>)}
+        <nav className="border-t-2 border-dashed border-primary/40 bg-background px-5 py-3 lg:hidden" aria-label="Navigation mobile">
+          {NAV.map(([id, l]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)} className="block py-2.5 text-sm font-semibold uppercase tracking-[0.14em] text-foreground">{l}</a>)}
         </nav>
       )}
     </header>
