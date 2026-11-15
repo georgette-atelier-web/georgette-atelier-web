@@ -9,13 +9,14 @@ import siteAetius from "@/assets/site-aetius.jpg";
 
 const EMAIL = "anna.bruyere.zh@gmail.com";
 const LINKEDIN = "https://www.linkedin.com/in/anna-bruy%C3%A8re-198813130/";
-const TITLE = "Création de site vitrine à prix fixe | Anna Bruyère, développeuse web";
-const DESC = "Sites vitrine clairs et rapides pour écoles, cabinets, artisans et indépendants. Référencement local, maintenance. Devis gratuit, à partir de 1 000 €.";
+const TITLE = "Création de site vitrine à prix fixe | Georgette, atelier web";
+const DESC = "Georgette, atelier web : sites vitrine clairs et rapides pour écoles, cabinets, artisans et indépendants. Développeuse web freelance en Ardèche. Devis gratuit, à partir de 1 000 €.";
 
 const JSON_LD = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "Anna Bruyère — Développeuse web freelance",
+  name: "Georgette — atelier web",
+  alternateName: "Georgette atelier web",
   description: DESC,
   email: EMAIL,
   url: "/",
@@ -24,7 +25,7 @@ const JSON_LD = {
     { "@type": "AdministrativeArea", name: "Ardèche" },
     { "@type": "Country", name: "France" },
   ],
-  founder: { "@type": "Person", name: "Anna Bruyère", jobTitle: "Développeuse web" },
+  founder: { "@type": "Person", name: "Anna Bruyère", jobTitle: "Développeuse web, fondatrice de Georgette" },
   sameAs: [LINKEDIN],
   knowsAbout: ["Création de site vitrine", "Référencement local", "Google Business Profile", "Maintenance de site web"],
 };
@@ -68,7 +69,7 @@ function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <a href="#accueil" className="font-display text-xl font-semibold text-primary">Anna Bruyère</a>
+        <a href="#accueil" className="font-display text-xl font-semibold text-primary">Georgette<span className="hidden font-normal text-muted-foreground sm:inline"> — atelier web</span></a>
         <nav className="hidden gap-7 text-sm font-medium md:flex" aria-label="Navigation principale">
           {NAV.map(([id, l]) => <a key={id} href={`#${id}`} className="text-muted-foreground transition-colors hover:text-primary">{l}</a>)}
         </nav>
@@ -96,7 +97,7 @@ function Index() {
         <section id="accueil" className="relative overflow-hidden px-5 pb-24 pt-36 sm:pt-44">
           <div aria-hidden className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
           <div className="relative mx-auto max-w-4xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Développeuse web freelance</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Atelier web en Ardèche</p>
             <h1 className="mt-5 text-4xl font-semibold leading-tight text-foreground sm:text-6xl">
               Votre site web clair, rapide et prêt à convaincre vos clients
             </h1>
@@ -224,7 +225,7 @@ function Index() {
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">À propos</p>
               <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">Bonjour, je suis Anna Bruyère</h2>
               <div className="mt-6 space-y-4 leading-relaxed text-muted-foreground">
-                <p>Développeuse web, j'accompagne les petites structures — écoles, cabinets, artisans et indépendants — qui veulent un site sérieux sans se perdre dans la technique.</p>
+                <p>Développeuse web, j'ai fondé Georgette, un atelier web qui accompagne les petites structures — écoles, cabinets, artisans et indépendants — qui veulent un site sérieux sans se perdre dans la technique.</p>
                 <p>Mon approche : écouter, simplifier, livrer un site rapide et facile à comprendre pour vos visiteurs. Vous avez une seule interlocutrice du premier échange à la mise en ligne, et après.</p>
               </div>
               <a href="#contact" className={`${btn} mt-8`}>Parlons de votre projet</a>
@@ -237,7 +238,7 @@ function Index() {
 
       <footer className="border-t bg-primary px-5 py-10 text-primary-foreground">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm sm:flex-row">
-          <p>© {new Date().getFullYear()} Anna Bruyère — Développeuse web</p>
+          <p>© {new Date().getFullYear()} Georgette — atelier web · Anna Bruyère, développeuse web freelance</p>
           <nav className="flex items-center gap-6" aria-label="Liens légaux et réseaux">
             <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:underline">
               <Linkedin className="size-4" aria-hidden="true" /> LinkedIn
