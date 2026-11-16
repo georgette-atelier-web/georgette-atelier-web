@@ -1,6 +1,8 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { Reveal } from "@/components/Reveal";
+import illustration from "@/assets/illustration-accueil.jpg";
+import constructeur from "@/assets/illustration-constructeur.jpg";
 import { SiteLayout, SectionTitle, pageHead, btn, BENEFITS, AUDIENCES, WHY, CardGrid, SERVICES, PROJECTS, Steps, Portrait, CtaBand, EMAIL, LINKEDIN, SITE } from "@/components/site";
 
 const TITLE = "Création de site internet pour artisans et indépendants | Georgette";
@@ -66,6 +68,15 @@ function Index() {
             <Link to="/realisations" className="font-semibold text-primary underline-offset-4 hover:underline">Voir mes réalisations →</Link>
           </div>
           <p className="mt-8 text-sm font-semibold text-muted-foreground">À partir de 900 € · Interlocutrice unique · Devis gratuit</p>
+          <div className="mt-10 overflow-hidden rounded-2xl border bg-card shadow-xl shadow-primary/10 sm:mt-14">
+            <img
+              src={illustration}
+              alt="Illustration d'un bouledogue crème portant des lunettes rondes, assis à un bureau en bois clair, une patte sur le clavier d'un ordinateur portable et l'autre tenant un crayon, avec une lampe et des plantes autour"
+              width={1600}
+              height={912}
+              className="h-auto w-full"
+            />
+          </div>
         </div>
       </section>
 
@@ -80,6 +91,21 @@ function Index() {
         <div className="mx-auto max-w-6xl">
           <SectionTitle kicker="Pour qui ?" title="Des sites pensés pour les petites structures" />
           <CardGrid items={AUDIENCES} cols="lg:grid-cols-4" tone="bg-card" />
+        </div>
+      </section>
+
+      <section className="px-5 py-12 sm:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="overflow-hidden rounded-2xl border bg-card shadow-xl shadow-primary/10">
+            <img
+              src={constructeur}
+              alt="Illustration d'un bouledogue debout, ceinture à outils, assemblant une page de site web avec des blocs dorés et une échelle, un ordinateur portable ouvert posé au sol et une plante à côté"
+              width={1600}
+              height={912}
+              loading="lazy"
+              className="h-auto w-full"
+            />
+          </div>
         </div>
       </section>
 
