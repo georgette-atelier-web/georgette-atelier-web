@@ -113,7 +113,7 @@ function Footer() {
           </div>
           <p className="mt-2 text-primary-foreground/80">Anna Bruyère, développeuse web freelance · Création de sites internet en Drôme, en Ardèche et partout en France à distance</p>
         </div>
-        <nav className="grid gap-2 sm:grid-cols-2" aria-label="Plan du site">
+        <nav className="grid sm:grid-cols-2 sm:gap-x-6 [&>a]:py-2.5 sm:[&>a]:py-1" aria-label="Plan du site">
           {NAV.map((n) => <Link key={n.to} to={n.to} className="hover:underline">{n.label}</Link>)}
           <Link to="/mentions-legales" className="hover:underline">Mentions légales</Link>
           <Link to="/politique-de-confidentialite" className="hover:underline">Politique de confidentialité</Link>
