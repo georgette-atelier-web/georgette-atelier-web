@@ -3,10 +3,10 @@ import { useState, type FormEvent, type ReactNode } from "react";
 import { Linkedin } from "lucide-react";
 import { z } from "zod";
 import { Reveal } from "@/components/Reveal";
-import logo from "@/assets/logo-georgette.png";
-import portrait from "@/assets/anna-bruyere.jpg";
-import siteEcole from "@/assets/site-ecole.jpg";
-import siteAetius from "@/assets/site-aetius.jpg";
+import logo from "@/assets/logo-georgette.webp";
+import portrait from "@/assets/anna-bruyere.webp";
+import siteEcole from "@/assets/site-ecole.webp";
+import siteAetius from "@/assets/site-aetius.webp";
 
 export const SITE = "https://georgette-atelier-web.fr";
 export const EMAIL = "contact@georgette-atelier-web.fr";
@@ -43,7 +43,7 @@ export const NAV = [
 
 export function SectionTitle({ kicker, title, intro }: { kicker: string; title: string; intro?: string }) {
   return (
-    <Reveal className="mx-auto mb-12 max-w-2xl text-center">
+    <Reveal className="mx-auto mb-8 max-w-2xl text-center sm:mb-12">
       <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">{kicker}</p>
       <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">{title}</h2>
       {intro && <p className="mt-4 text-muted-foreground">{intro}</p>}
@@ -73,7 +73,7 @@ function Header() {
       <div className="h-1.5 bg-[repeating-linear-gradient(90deg,var(--primary)_0_18px,var(--accent)_18px_36px)]" aria-hidden="true" />
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-3 px-4 sm:px-5">
         <Link to="/" className="group flex shrink-0 items-center gap-3" aria-label="Georgette — atelier web, retour à l'accueil">
-          <img src={logo} alt="Logo Georgette : tête de bouledogue français" width={256} height={256} className="h-11 w-11 sm:h-14 sm:w-14 transition-transform duration-300 group-hover:-rotate-6" />
+          <img src={logo} alt="Logo Georgette : tête de bouledogue français" width={160} height={160} fetchPriority="high" className="h-11 w-11 sm:h-14 sm:w-14 transition-transform duration-300 group-hover:-rotate-6" />
           <span className="flex flex-col leading-none">
             <span className="font-display text-xl sm:text-2xl font-bold italic tracking-tight text-primary">Georgette</span>
             <span className="mt-1 hidden text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent sm:block">— Atelier web · France —</span>
@@ -108,7 +108,7 @@ function Footer() {
       <div className="mx-auto grid max-w-6xl gap-8 text-sm md:grid-cols-[2fr_3fr]">
         <div>
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Logo Georgette : tête de bouledogue français" width={256} height={256} className="h-12 w-12 rounded-full bg-card/90 p-1" />
+            <img src={logo} alt="Logo Georgette : tête de bouledogue français" width={160} height={160} loading="lazy" className="h-12 w-12 rounded-full bg-card/90 p-1" />
             <p className="font-display text-xl font-bold italic">Georgette — atelier web</p>
           </div>
           <p className="mt-2 text-primary-foreground/80">Anna Bruyère, développeuse web freelance · Création de sites internet en Drôme, en Ardèche et partout en France à distance</p>
@@ -172,13 +172,15 @@ export const WHY = [
 
 export function CardGrid({ items, cols = "md:grid-cols-3", tone = "bg-background" }: { items: readonly (readonly [string, string])[]; cols?: string; tone?: string }) {
   return (
-    <div className={`grid gap-6 sm:grid-cols-2 ${cols}`}>
+    <div className={`grid gap-4 sm:grid-cols-2 sm:gap-6 ${cols}`}>
       {items.map(([t, d], i) => (
         <Reveal key={t} delay={i * 80} className="h-full">
-          <article className={`h-full rounded-2xl border ${tone} p-7`}>
-            <span aria-hidden="true" className="text-xl text-accent">✦</span>
-            <h3 className="mt-3 text-lg font-semibold text-foreground">{t}</h3>
-            <p className="mt-2 leading-relaxed text-muted-foreground">{d}</p>
+          <article className={`grid h-full grid-cols-[auto_minmax(0,1fr)] gap-x-3 rounded-2xl border ${tone} p-5 sm:block sm:p-7`}>
+            <span aria-hidden="true" className="text-xl leading-7 text-accent">✦</span>
+            <div className="min-w-0">
+              <h3 className="text-lg font-semibold text-foreground sm:mt-3">{t}</h3>
+              <p className="mt-1.5 leading-relaxed text-muted-foreground sm:mt-2">{d}</p>
+            </div>
           </article>
         </Reveal>
       ))}
@@ -226,7 +228,7 @@ export function Portrait() {
   return (
     <div className="relative mx-auto w-full max-w-xs">
       <div aria-hidden="true" className="absolute inset-0 translate-x-4 translate-y-4 rounded-t-full rounded-b-3xl border-2 border-accent" />
-      <img src={portrait} alt="Portrait d'Anna Bruyère, développeuse web freelance" width={1024} height={1280} loading="lazy" className="relative aspect-[4/5] w-full rounded-t-full rounded-b-3xl object-cover shadow-2xl shadow-primary/20 ring-4 ring-card" />
+      <img src={portrait} alt="Portrait d'Anna Bruyère, développeuse web freelance" width={640} height={800} loading="lazy" decoding="async" className="relative aspect-[4/5] w-full rounded-t-full rounded-b-3xl object-cover shadow-2xl shadow-primary/20 ring-4 ring-card" />
     </div>
   );
 }
@@ -293,7 +295,7 @@ export function ContactForm() {
       <label className="text-sm font-medium text-foreground sm:col-span-2">Votre projet *<textarea name="message" rows={5} required className={field} />{err("message")}</label>
       <div className="flex flex-col items-start gap-3 sm:col-span-2">
         <button type="submit" className={btn}>Envoyer ma demande</button>
-        <p className="text-sm text-muted-foreground">Gratuit et sans engagement, réponse sous 48 h.</p>
+        <p className="text-sm text-muted-foreground">Gratuit et sans engagement, réponse sous 48 h.</p>
         {sent && <p className="text-sm text-primary">Votre messagerie s'ouvre avec votre demande pré-remplie. Il ne reste qu'à l'envoyer !</p>}
         <p className="text-sm text-muted-foreground">Ou écrivez-moi directement : <a href={`mailto:${EMAIL}`} className="font-semibold text-primary hover:underline">{EMAIL}</a></p>
         <p className="text-sm text-muted-foreground">Retrouvez-moi aussi sur <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-primary hover:underline"><Linkedin className="size-4" aria-hidden="true" /> LinkedIn</a></p>

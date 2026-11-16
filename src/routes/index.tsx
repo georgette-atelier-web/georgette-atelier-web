@@ -65,25 +65,25 @@ function Index() {
             <Link to="/creation-site-vitrine" className="inline-flex items-center justify-center rounded-full border-2 border-primary px-7 py-3 font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground">Découvrir les offres</Link>
             <Link to="/realisations" className="font-semibold text-primary underline-offset-4 hover:underline">Voir mes réalisations →</Link>
           </div>
-          <p className="mt-8 text-sm font-semibold text-muted-foreground">À partir de 1 000 € · Interlocutrice unique · Devis gratuit</p>
+          <p className="mt-8 text-sm font-semibold text-muted-foreground">À partir de 1 000 € · Interlocutrice unique · Devis gratuit</p>
         </div>
       </section>
 
-      <section className="bg-card px-5 py-24">
+      <section className="bg-card px-5 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <SectionTitle kicker="Ce que vous y gagnez" title="Un site qui travaille pour votre activité" />
           <CardGrid items={BENEFITS} />
         </div>
       </section>
 
-      <section className="px-5 py-24">
+      <section className="px-5 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <SectionTitle kicker="Pour qui ?" title="Des sites pensés pour les petites structures" />
           <CardGrid items={AUDIENCES} cols="lg:grid-cols-4" tone="bg-card" />
         </div>
       </section>
 
-      <section className="bg-card px-5 py-24">
+      <section className="bg-card px-5 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <SectionTitle kicker="Ce que je fais" title="Un accompagnement complet, de la page blanche à Google" />
           <div className="grid gap-6 md:grid-cols-3">
@@ -101,14 +101,14 @@ function Index() {
         </div>
       </section>
 
-      <section className="px-5 py-24">
+      <section className="px-5 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <SectionTitle kicker="Pourquoi travailler avec Georgette ?" title="Le sérieux d'un professionnel, la proximité en plus" />
           <CardGrid items={WHY} tone="bg-card" />
         </div>
       </section>
 
-      <section className="bg-card px-5 py-24">
+      <section className="bg-card px-5 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <SectionTitle kicker="Réalisations" title="Quelques sites mis en ligne" />
           <div className="grid gap-8 md:grid-cols-2">
@@ -130,14 +130,14 @@ function Index() {
         </div>
       </section>
 
-      <section className="px-5 py-24">
+      <section className="px-5 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <SectionTitle kicker="Comment ça se passe" title="Quatre étapes, une seule interlocutrice" />
           <Steps />
         </div>
       </section>
 
-      <section className="px-5 py-24">
+      <section className="px-5 py-16 sm:py-24">
         <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-[2fr_3fr]">
           <Reveal><Portrait /></Reveal>
           <Reveal delay={120}>
