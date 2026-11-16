@@ -64,7 +64,7 @@ export function PageHero({ kicker, title, intro }: { kicker: string; title: stri
   );
 }
 
-const navCls = "rounded-full px-3 py-2 uppercase tracking-[0.1em] text-[0.68rem] text-foreground/80 transition-colors hover:bg-primary hover:text-primary-foreground";
+const navCls = "rounded-full px-2.5 py-2 uppercase tracking-[0.05em] text-[0.68rem] text-foreground/80 transition-colors hover:bg-primary hover:text-primary-foreground";
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -79,11 +79,11 @@ function Header() {
             <span className="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent">— Atelier web · France —</span>
           </span>
         </Link>
-        <nav className="hidden items-center gap-1 text-sm font-semibold xl:flex" aria-label="Navigation principale">
+        <nav className="hidden items-center gap-0.5 text-sm font-semibold xl:flex" aria-label="Navigation principale">
           {NAV.map((n) => (
             <Link key={n.to} to={n.to} className={navCls} activeOptions={{ exact: true }} activeProps={{ className: "bg-primary/10 text-primary" }}>{n.label}</Link>
           ))}
-          <Link to="/contact" className="ml-2 rounded-full bg-accent px-4 py-2 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-accent-foreground transition hover:bg-accent/90">Devis gratuit</Link>
+          <Link to="/contact" className="ml-1 rounded-full bg-accent px-4 py-2 text-[0.72rem] font-bold uppercase tracking-[0.08em] text-accent-foreground transition hover:bg-accent/90">Devis gratuit</Link>
         </nav>
         <button className="rounded-full border-2 border-primary p-2.5 text-primary xl:hidden" aria-label="Ouvrir le menu" aria-expanded={open} onClick={() => setOpen(!open)}>
           <span className="block h-0.5 w-5 bg-current" /><span className="mt-1 block h-0.5 w-5 bg-current" /><span className="mt-1 block h-0.5 w-5 bg-current" />
@@ -104,7 +104,10 @@ function Footer() {
     <footer className="border-t bg-primary px-5 py-12 text-primary-foreground">
       <div className="mx-auto grid max-w-6xl gap-8 text-sm md:grid-cols-[2fr_3fr]">
         <div>
-          <p className="font-display text-xl font-bold italic">Georgette — atelier web</p>
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="Logo Georgette : tête de bouledogue français" width={256} height={256} className="h-12 w-12 rounded-full bg-card/90 p-1" />
+            <p className="font-display text-xl font-bold italic">Georgette — atelier web</p>
+          </div>
           <p className="mt-2 text-primary-foreground/80">Anna Bruyère, développeuse web freelance · Création de sites vitrine en France</p>
         </div>
         <nav className="grid gap-2 sm:grid-cols-2" aria-label="Plan du site">
