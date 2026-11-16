@@ -21,7 +21,7 @@ function renderPage(path: string) {
     routeTree,
     history: createMemoryHistory({ initialEntries: [path] }),
     context: { queryClient: new QueryClient() },
-    defaultPreload: "off",
+    defaultPreload: false,
   });
   return render(<RouterProvider router={router} />);
 }
@@ -40,7 +40,7 @@ describe("Maintenance is optional", () => {
       ),
     ).toBeInTheDocument();
 
-    const card = screen.getByRole("heading", { name: "Maintenance", exact: true }).closest("article");
+    const card = screen.getByRole("heading", { name: /^Maintenance$/ }).closest("article");
     expect(card).not.toBeNull();
     expect(within(card as HTMLElement).getByText(/conserver votre site sans souscrire/i)).toBeInTheDocument();
   });
