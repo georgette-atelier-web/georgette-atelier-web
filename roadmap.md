@@ -9,3 +9,6 @@
 - [ ] Domaine georgette-atelier-web.fr : à connecter par Anna elle-même (Réglages du projet → Domaines)
 - [x] Canonical, sitemap et données structurées sur georgette-atelier-web.fr
 - [ ] Attendu : numéro SIRET dès réception
+- [x] Passer en 5 pages (accueil, offres, référencement & maintenance, réalisations, contact) + sitemap
+- [ ] Attendu : citations des témoignages (école et Aetius)
+- [ ] Vérifier que la boîte contact@georgette-atelier-web.fr reçoit bien les messages

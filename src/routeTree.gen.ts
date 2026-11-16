@@ -10,12 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CreationSiteVitrineRouteImport } from './routes/creation-site-vitrine'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as PolitiqueDeConfidentialiteRouteImport } from './routes/politique-de-confidentialite'
+import { Route as RealisationsRouteImport } from './routes/realisations'
+import { Route as ReferencementMaintenanceRouteImport } from './routes/referencement-maintenance'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreationSiteVitrineRoute = CreationSiteVitrineRouteImport.update({
+  id: '/creation-site-vitrine',
+  path: '/creation-site-vitrine',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
@@ -29,35 +43,84 @@ const PolitiqueDeConfidentialiteRoute =
     path: '/politique-de-confidentialite',
     getParentRoute: () => rootRouteImport,
   } as any)
+const RealisationsRoute = RealisationsRouteImport.update({
+  id: '/realisations',
+  path: '/realisations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferencementMaintenanceRoute =
+  ReferencementMaintenanceRouteImport.update({
+    id: '/referencement-maintenance',
+    path: '/referencement-maintenance',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/creation-site-vitrine': typeof CreationSiteVitrineRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
+  '/realisations': typeof RealisationsRoute
+  '/referencement-maintenance': typeof ReferencementMaintenanceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/creation-site-vitrine': typeof CreationSiteVitrineRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
+  '/realisations': typeof RealisationsRoute
+  '/referencement-maintenance': typeof ReferencementMaintenanceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/creation-site-vitrine': typeof CreationSiteVitrineRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
+  '/realisations': typeof RealisationsRoute
+  '/referencement-maintenance': typeof ReferencementMaintenanceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/mentions-legales' | '/politique-de-confidentialite'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/creation-site-vitrine'
+    | '/mentions-legales'
+    | '/politique-de-confidentialite'
+    | '/realisations'
+    | '/referencement-maintenance'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/mentions-legales' | '/politique-de-confidentialite'
-  id: '__root__' | '/' | '/mentions-legales' | '/politique-de-confidentialite'
+  to:
+    | '/'
+    | '/contact'
+    | '/creation-site-vitrine'
+    | '/mentions-legales'
+    | '/politique-de-confidentialite'
+    | '/realisations'
+    | '/referencement-maintenance'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/creation-site-vitrine'
+    | '/mentions-legales'
+    | '/politique-de-confidentialite'
+    | '/realisations'
+    | '/referencement-maintenance'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  CreationSiteVitrineRoute: typeof CreationSiteVitrineRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   PolitiqueDeConfidentialiteRoute: typeof PolitiqueDeConfidentialiteRoute
+  RealisationsRoute: typeof RealisationsRoute
+  ReferencementMaintenanceRoute: typeof ReferencementMaintenanceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -67,6 +130,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/creation-site-vitrine': {
+      id: '/creation-site-vitrine'
+      path: '/creation-site-vitrine'
+      fullPath: '/creation-site-vitrine'
+      preLoaderRoute: typeof CreationSiteVitrineRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mentions-legales': {
@@ -83,13 +160,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PolitiqueDeConfidentialiteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/realisations': {
+      id: '/realisations'
+      path: '/realisations'
+      fullPath: '/realisations'
+      preLoaderRoute: typeof RealisationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/referencement-maintenance': {
+      id: '/referencement-maintenance'
+      path: '/referencement-maintenance'
+      fullPath: '/referencement-maintenance'
+      preLoaderRoute: typeof ReferencementMaintenanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  CreationSiteVitrineRoute: CreationSiteVitrineRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
   PolitiqueDeConfidentialiteRoute: PolitiqueDeConfidentialiteRoute,
+  RealisationsRoute: RealisationsRoute,
+  ReferencementMaintenanceRoute: ReferencementMaintenanceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

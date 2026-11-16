@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+- Shared header/footer/sections live in src/components/site.tsx; each page wraps in SiteLayout and uses pageHead() for absolute canonical/og:url — keeps 5 routes consistent.
+- public/sitemap.xml is static: add each new public route to it by hand.
