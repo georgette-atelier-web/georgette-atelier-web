@@ -143,7 +143,7 @@ function MobileContactBar() {
 export const SERVICES = [
   { n: "01", t: "Site vitrine sur mesure", d: "Un site à votre image qui présente clairement vos services, rassure vos visiteurs et les incite à vous contacter.", to: "/creation-site-vitrine" },
   { n: "02", t: "Référencement local & Google Business", d: "Être trouvé par les clients près de chez vous, en Drôme et en Ardèche : pages optimisées, mots-clés locaux et fiche Google Business soignée.", to: "/referencement-maintenance" },
-  { n: "03", t: "Maintenance et hébergement", d: "Un site toujours à jour, sécurisé et sauvegardé, sans que vous ayez à y penser. Vous vous concentrez sur votre métier.", to: "/referencement-maintenance" },
+  { n: "03", t: "Maintenance et hébergement", d: "Un site toujours à jour, sécurisé et sauvegardé, sans que vous ayez à y penser. Prestation facultative : vous pouvez aussi garder votre site et le gérer vous-même.", to: "/referencement-maintenance" },
 ] as const;
 
 export const BENEFITS = [
@@ -239,7 +239,7 @@ export const FAQ = [
   ["Dois-je fournir moi-même les textes et les photos ?", "Si vous avez déjà des photos et des textes, je les intègre et les optimise pour le web. Si vous partez de zéro, pas d'inquiétude : je vous guide avec une trame simple pour poser vos idées, et je reformule pour que vos pages soient claires et agréables à lire."],
   ["Mon site sera-t-il adapté aux téléphones et visible sur Google ?", "Oui, tous les sites conçus par Georgette sont pensés en priorité pour smartphone, s'affichent très rapidement et intègrent les bonnes pratiques de référencement naturel (balises, descriptions, vitesse de chargement, plan du site)."],
   ["Dois-je m'y connaître en technique ?", "Non, pas du tout. Je m'occupe de toute la partie technique et je vous explique chaque étape avec des mots simples. Après la mise en ligne, vous savez faire les petites mises à jour, ou vous me les confiez."],
-  ["Que se passe-t-il après la mise en ligne ?", "Vous avez deux options : gérer votre site en toute autonomie grâce aux explications simples que je vous fournis, ou me confier sa maintenance mensuelle (hébergement, sauvegardes régulières, mises à jour de sécurité et petites modifications de contenu)."],
+  ["Que se passe-t-il après la mise en ligne ?", "Vous avez deux options, et la maintenance est facultative : gérer votre site en toute autonomie grâce aux explications simples que je vous fournis, ou me confier sa maintenance mensuelle (hébergement, sauvegardes régulières, mises à jour de sécurité et petites modifications de contenu). Vous pouvez tout à fait conserver votre site sans souscrire à cette prestation."],
 ] as const;
 
 export function Faq() {

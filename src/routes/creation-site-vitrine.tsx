@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 import { SiteLayout, SectionTitle, PageHero, pageHead, Steps, CtaBand, btn } from "@/components/site";
 
 const TITLE = "Création de site vitrine à prix fixe | Georgette, atelier web";
-const DESC = "Site vitrine pour indépendant, artisan ou commerce : offre Essentielle dès 900 €, Visibilité dès 1 500 €, maintenance dès 40 €/mois. Drôme et Ardèche.";
+const DESC = "Site vitrine pour indépendant, artisan ou commerce : offre Essentielle dès 900 €, Visibilité dès 1 500 €, maintenance facultative dès 40 €/mois. Drôme et Ardèche.";
 
 export const Route = createFileRoute("/creation-site-vitrine")({
   head: () => pageHead("/creation-site-vitrine", TITLE, DESC),
@@ -11,9 +11,9 @@ export const Route = createFileRoute("/creation-site-vitrine")({
 });
 
 const OFFERS = [
-  { t: "Essentielle", p: "900 €", u: "", f: ["3 à 5 pages", "Adapté au mobile et à l'ordinateur", "Formulaire de contact", "Mise en ligne incluse"], hl: false, note: "" },
-  { t: "Visibilité", p: "1 500 €", u: "", f: ["Tout le contenu de l'offre Essentielle", "Optimisation pour Google", "Création ou refonte de la fiche Google Business", "Mots-clés locaux"], hl: true, note: "Aucun positionnement sur Google ne peut être garanti." },
-  { t: "Maintenance", p: "40 €", u: "/mois", f: ["Hébergement", "Mises à jour", "Petites modifications de contenu, dans une limite définie au devis", "Sauvegardes régulières"], hl: false, note: "" },
+  { t: "Essentielle", p: "900 €", u: "", f: ["3 à 5 pages", "Adapté au mobile et à l'ordinateur", "Formulaire de contact", "Mise en ligne incluse"], hl: false, badge: "", note: "" },
+  { t: "Visibilité", p: "1 500 €", u: "", f: ["Tout le contenu de l'offre Essentielle", "Optimisation pour Google", "Création ou refonte de la fiche Google Business", "Mots-clés locaux"], hl: true, badge: "Le plus demandé", note: "Aucun positionnement sur Google ne peut être garanti." },
+  { t: "Maintenance", p: "40 €", u: "/mois", f: ["Hébergement", "Mises à jour", "Petites modifications de contenu, dans une limite définie au devis", "Sauvegardes régulières"], hl: false, badge: "Facultative", note: "Facultative : vous pouvez conserver votre site sans souscrire à cette prestation." },
 ];
 
 function Page() {
@@ -27,19 +27,22 @@ function Page() {
             {OFFERS.map((o, i) => (
               <Reveal key={o.t} delay={i * 100} className="h-full">
                 <article className={`flex h-full flex-col rounded-2xl border p-8 ${o.hl ? "bg-primary text-primary-foreground shadow-2xl shadow-primary/25" : "bg-card"}`}>
-                  {o.hl && <span className="mb-4 self-start rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">Le plus demandé</span>}
+                  {o.badge && <span className={`mb-4 self-start rounded-full px-3 py-1 text-xs font-semibold ${o.hl ? "bg-accent text-accent-foreground" : "border border-accent text-accent"}`}>{o.badge}</span>}
                   <h3 className="text-2xl font-semibold">{o.t}</h3>
                   <p className={`mt-4 text-sm ${o.hl ? "text-primary-foreground/75" : "text-muted-foreground"}`}>à partir de</p>
                   <p className="font-display text-4xl font-semibold">{o.p}<span className="text-lg font-normal">{o.u}</span></p>
                   <ul className="mt-6 flex-1 space-y-3">
                     {o.f.map((x) => <li key={x} className="flex gap-3"><span className="text-accent" aria-hidden>✓</span>{x}</li>)}
                   </ul>
-                  {o.note && <p className="mt-4 text-xs text-primary-foreground/75">{o.note}</p>}
+                  {o.note && <p className={`mt-4 text-xs ${o.hl ? "text-primary-foreground/75" : "text-muted-foreground"}`}>{o.note}</p>}
                   <Link to="/contact" className={`mt-8 rounded-full px-6 py-3 text-center font-semibold transition ${o.hl ? "bg-accent text-accent-foreground hover:bg-accent/90" : "border border-primary text-primary hover:bg-primary hover:text-primary-foreground"}`}>Demander un devis</Link>
                 </article>
               </Reveal>
             ))}
           </div>
+          <p className="mx-auto mt-8 max-w-3xl rounded-2xl border border-dashed bg-background p-5 text-center text-sm font-semibold text-foreground">
+            La maintenance à 40 €/mois est facultative : vous pouvez conserver votre site sans souscrire à cette prestation.
+          </p>
           <Reveal className="mx-auto mt-10 max-w-3xl rounded-2xl border bg-card p-8 text-center">
             <h2 className="text-2xl font-semibold text-foreground">Chaque projet est différent</h2>
             <p className="mt-3 text-muted-foreground">Besoin d'une page en plus, d'une boutique simple ou d'un accompagnement particulier ? Je vous prépare une proposition adaptée.</p>
