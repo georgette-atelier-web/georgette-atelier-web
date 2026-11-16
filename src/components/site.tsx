@@ -71,12 +71,12 @@ function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b-4 border-double border-primary/70 bg-background/95 backdrop-blur">
       <div className="h-1.5 bg-[repeating-linear-gradient(90deg,var(--primary)_0_18px,var(--accent)_18px_36px)]" aria-hidden="true" />
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-4 px-5">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-3 px-4 sm:px-5">
         <Link to="/" className="group flex shrink-0 items-center gap-3" aria-label="Georgette — atelier web, retour à l'accueil">
-          <img src={logo} alt="Logo Georgette : tête de bouledogue français" width={256} height={256} className="h-14 w-14 transition-transform duration-300 group-hover:-rotate-6" />
+          <img src={logo} alt="Logo Georgette : tête de bouledogue français" width={256} height={256} className="h-11 w-11 sm:h-14 sm:w-14 transition-transform duration-300 group-hover:-rotate-6" />
           <span className="flex flex-col leading-none">
-            <span className="font-display text-2xl font-bold italic tracking-tight text-primary">Georgette</span>
-            <span className="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent">— Atelier web · France —</span>
+            <span className="font-display text-xl sm:text-2xl font-bold italic tracking-tight text-primary">Georgette</span>
+            <span className="mt-1 hidden text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent sm:block">— Atelier web · France —</span>
           </span>
         </Link>
         <nav className="hidden items-center gap-0.5 text-sm font-semibold xl:flex" aria-label="Navigation principale">
@@ -85,9 +85,12 @@ function Header() {
           ))}
           <Link to="/contact" className="ml-1 rounded-full bg-accent px-4 py-2 text-[0.72rem] font-bold uppercase tracking-[0.08em] text-accent-foreground transition hover:bg-accent/90">Devis gratuit</Link>
         </nav>
-        <button className="rounded-full border-2 border-primary p-2.5 text-primary xl:hidden" aria-label="Ouvrir le menu" aria-expanded={open} onClick={() => setOpen(!open)}>
+        <div className="flex items-center gap-2 xl:hidden">
+        <Link to="/contact" className="rounded-full bg-accent px-3.5 py-2 text-[0.7rem] font-bold uppercase tracking-[0.08em] text-accent-foreground">Devis gratuit</Link>
+        <button className="rounded-full border-2 border-primary p-2.5 text-primary" aria-label="Ouvrir le menu" aria-expanded={open} onClick={() => setOpen(!open)}>
           <span className="block h-0.5 w-5 bg-current" /><span className="mt-1 block h-0.5 w-5 bg-current" /><span className="mt-1 block h-0.5 w-5 bg-current" />
         </button>
+        </div>
       </div>
       {open && (
         <nav className="border-t-2 border-dashed border-primary/40 bg-background px-5 py-3 xl:hidden" aria-label="Navigation mobile">
@@ -108,7 +111,7 @@ function Footer() {
             <img src={logo} alt="Logo Georgette : tête de bouledogue français" width={256} height={256} className="h-12 w-12 rounded-full bg-card/90 p-1" />
             <p className="font-display text-xl font-bold italic">Georgette — atelier web</p>
           </div>
-          <p className="mt-2 text-primary-foreground/80">Anna Bruyère, développeuse web freelance · Création de sites vitrine en France</p>
+          <p className="mt-2 text-primary-foreground/80">Anna Bruyère, développeuse web freelance · Création de sites internet à Valence, en Drôme, en Ardèche et partout en France à distance</p>
         </div>
         <nav className="grid gap-2 sm:grid-cols-2" aria-label="Plan du site">
           {NAV.map((n) => <Link key={n.to} to={n.to} className="hover:underline">{n.label}</Link>)}
@@ -125,14 +128,63 @@ function Footer() {
 }
 
 export function SiteLayout({ children }: { children: ReactNode }) {
-  return (<><Header /><main>{children}</main><Footer /></>);
+  return (<><Header /><main>{children}</main><div className="pb-16 md:pb-0"><Footer /></div><MobileContactBar /></>);
+}
+
+function MobileContactBar() {
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-40 grid h-16 grid-cols-2 gap-2 border-t bg-background/95 px-3 py-2.5 backdrop-blur md:hidden" data-mobile-bar>
+      <a href={`mailto:${EMAIL}`} className="flex items-center justify-center rounded-full border-2 border-primary text-sm font-semibold text-primary">Écrire un e-mail</a>
+      <Link to="/contact" hash="devis" className="flex items-center justify-center rounded-full bg-accent text-sm font-bold text-accent-foreground">Demander un devis</Link>
+    </div>
+  );
 }
 
 export const SERVICES = [
-  { n: "01", t: "Site vitrine sur mesure", d: "Un site à votre image, simple à parcourir sur mobile comme sur ordinateur, pensé pour transformer les visiteurs en clients.", to: "/creation-site-vitrine" },
-  { n: "02", t: "Référencement local & Google Business", d: "Être trouvé par les gens près de chez vous : optimisation des pages, mots-clés locaux et fiche Google Business soignée.", to: "/referencement-maintenance" },
-  { n: "03", t: "Maintenance et hébergement", d: "Je m'occupe de l'hébergement, des mises à jour et des petites modifications. Vous vous concentrez sur votre métier.", to: "/referencement-maintenance" },
+  { n: "01", t: "Site vitrine sur mesure", d: "Un site à votre image qui présente clairement vos services, rassure vos visiteurs et les incite à vous contacter.", to: "/creation-site-vitrine" },
+  { n: "02", t: "Référencement local & Google Business", d: "Être trouvé par les clients près de chez vous, à Valence, en Drôme et en Ardèche : pages optimisées, mots-clés locaux et fiche Google Business soignée.", to: "/referencement-maintenance" },
+  { n: "03", t: "Maintenance et hébergement", d: "Un site toujours à jour, sécurisé et sauvegardé, sans que vous ayez à y penser. Vous vous concentrez sur votre métier.", to: "/referencement-maintenance" },
 ] as const;
+
+export const BENEFITS = [
+  ["Une présence professionnelle", "Un site soigné qui inspire confiance dès la première visite."],
+  ["Une meilleure visibilité locale", "Être trouvé par les clients qui cherchent votre métier près de chez eux."],
+  ["Un site rapide et adapté au mobile", "Agréable à consulter sur téléphone, là où vos clients vous cherchent."],
+  ["Des services mieux présentés", "Vos prestations expliquées simplement, pour que chacun comprenne ce que vous proposez."],
+  ["Contact et devis simplifiés", "Un formulaire et des boutons clairs pour vous écrire en quelques secondes."],
+] as const;
+
+export const AUDIENCES = [
+  ["Artisans et bâtiment", "Plombiers, électriciens, menuisiers, paysagistes : montrez vos chantiers et recevez des demandes de devis."],
+  ["Commerçants et restaurateurs", "Horaires, carte, produits, accès : l'essentiel pour donner envie de venir."],
+  ["Indépendants et professions libérales", "Consultants, thérapeutes, avocats, coachs : une vitrine sérieuse pour votre expertise."],
+  ["Petites entreprises et associations", "Un site clair pour présenter votre structure, vos actions et vos contacts."],
+] as const;
+
+export const WHY = [
+  ["Une interlocutrice unique", "Vous échangez avec la même personne du premier appel à la mise en ligne, et après."],
+  ["Une relation directe", "Pas d'intermédiaire ni de jargon : des réponses claires, rapidement."],
+  ["Des solutions adaptées à votre budget", "Des offres à prix fixe, ajustées à vos besoins réels."],
+  ["Une approche technique sérieuse", "Performance, affichage mobile et bonnes pratiques de référencement dès la conception."],
+  ["Un accompagnement humain", "Je vous guide pour les textes, les photos et la prise en main du site."],
+  ["Des tarifs transparents", "Les prix sont affichés, le devis est détaillé et gratuit."],
+] as const;
+
+export function CardGrid({ items, cols = "md:grid-cols-3", tone = "bg-background" }: { items: readonly (readonly [string, string])[]; cols?: string; tone?: string }) {
+  return (
+    <div className={`grid gap-6 sm:grid-cols-2 ${cols}`}>
+      {items.map(([t, d], i) => (
+        <Reveal key={t} delay={i * 80} className="h-full">
+          <article className={`h-full rounded-2xl border ${tone} p-7`}>
+            <span aria-hidden="true" className="text-xl text-accent">✦</span>
+            <h3 className="mt-3 text-lg font-semibold text-foreground">{t}</h3>
+            <p className="mt-2 leading-relaxed text-muted-foreground">{d}</p>
+          </article>
+        </Reveal>
+      ))}
+    </div>
+  );
+}
 
 export const PROJECTS = [
   { id: "ecole-du-vieux-chateau", img: siteEcole, n: "École du Vieux Château", short: "Site d'une école : présentation de l'établissement, actualités et informations pratiques pour les familles.", url: "https://www.ecoleduvieuxchateau.fr",
@@ -184,6 +236,7 @@ export const FAQ = [
   ["Le site m'appartient-il à 100 % ?", "Oui, absolument. Vous êtes l'unique propriétaire de votre nom de domaine, de vos contenus et du site. Aucun abonnement caché, aucun piège : vous êtes totalement libre."],
   ["Dois-je fournir moi-même les textes et les photos ?", "Si vous avez déjà des photos et des textes, je les intègre et les optimise pour le web. Si vous partez de zéro, pas d'inquiétude : je vous guide avec une trame simple pour poser vos idées, et je reformule pour que vos pages soient claires et agréables à lire."],
   ["Mon site sera-t-il adapté aux téléphones et visible sur Google ?", "Oui, tous les sites conçus par Georgette sont pensés en priorité pour smartphone, s'affichent très rapidement et intègrent les bonnes pratiques de référencement naturel (balises, descriptions, vitesse de chargement, plan du site)."],
+  ["Dois-je m'y connaître en technique ?", "Non, pas du tout. Je m'occupe de toute la partie technique et je vous explique chaque étape avec des mots simples. Après la mise en ligne, vous savez faire les petites mises à jour, ou vous me les confiez."],
   ["Que se passe-t-il après la mise en ligne ?", "Vous avez deux options : gérer votre site en toute autonomie grâce aux explications simples que je vous fournis, ou me confier sa maintenance mensuelle (hébergement, sauvegardes régulières, mises à jour de sécurité et petites modifications de contenu)."],
 ] as const;
 
@@ -208,7 +261,7 @@ export function Faq() {
 const schema = z.object({
   nom: z.string().trim().min(1, "Merci d'indiquer votre nom").max(100),
   email: z.string().trim().email("Adresse e-mail invalide").max(255),
-  structure: z.string().trim().max(150),
+  activite: z.string().trim().max(150),
   message: z.string().trim().min(1, "Merci de décrire votre projet").max(2000),
 });
 
@@ -225,8 +278,8 @@ export function ContactForm() {
       return;
     }
     setErrors({});
-    const { nom, email, structure, message } = r.data;
-    const body = `Nom : ${nom}\nE-mail : ${email}\nStructure : ${structure || "—"}\n\n${message}`;
+    const { nom, email, activite, message } = r.data;
+    const body = `Nom : ${nom}\nE-mail : ${email}\nActivité : ${activite || "—"}\n\n${message}`;
     window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(`Demande de devis — ${nom}`)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   };
@@ -236,11 +289,11 @@ export function ContactForm() {
     <form onSubmit={onSubmit} noValidate className="grid gap-5 rounded-3xl border bg-card p-6 sm:grid-cols-2 sm:p-10">
       <label className="text-sm font-medium text-foreground">Nom *<input name="nom" autoComplete="name" required className={field} />{err("nom")}</label>
       <label className="text-sm font-medium text-foreground">E-mail *<input name="email" type="email" autoComplete="email" required className={field} />{err("email")}</label>
-      <label className="text-sm font-medium text-foreground sm:col-span-2">Structure (école, cabinet, entreprise…)<input name="structure" className={field} /></label>
+      <label className="text-sm font-medium text-foreground sm:col-span-2">Votre activité (artisan, commerce, cabinet…)<input name="activite" className={field} /></label>
       <label className="text-sm font-medium text-foreground sm:col-span-2">Votre projet *<textarea name="message" rows={5} required className={field} />{err("message")}</label>
       <div className="flex flex-col items-start gap-3 sm:col-span-2">
         <button type="submit" className={btn}>Envoyer ma demande</button>
-        <p className="text-sm text-muted-foreground">Réponse sous 48 h.</p>
+        <p className="text-sm text-muted-foreground">Gratuit et sans engagement, réponse sous 48 h.</p>
         {sent && <p className="text-sm text-primary">Votre messagerie s'ouvre avec votre demande pré-remplie. Il ne reste qu'à l'envoyer !</p>}
         <p className="text-sm text-muted-foreground">Ou écrivez-moi directement : <a href={`mailto:${EMAIL}`} className="font-semibold text-primary hover:underline">{EMAIL}</a></p>
         <p className="text-sm text-muted-foreground">Retrouvez-moi aussi sur <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-primary hover:underline"><Linkedin className="size-4" aria-hidden="true" /> LinkedIn</a></p>

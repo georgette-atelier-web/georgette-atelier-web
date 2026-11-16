@@ -1,10 +1,10 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { Reveal } from "@/components/Reveal";
-import { SiteLayout, SectionTitle, pageHead, btn, SERVICES, PROJECTS, Steps, Portrait, CtaBand, EMAIL, LINKEDIN, SITE } from "@/components/site";
+import { SiteLayout, SectionTitle, pageHead, btn, BENEFITS, AUDIENCES, WHY, CardGrid, SERVICES, PROJECTS, Steps, Portrait, CtaBand, EMAIL, LINKEDIN, SITE } from "@/components/site";
 
-const TITLE = "Création de site vitrine | Georgette, atelier web";
-const DESC = "Georgette, atelier web en France : création de sites vitrine clairs et rapides pour écoles, cabinets, artisans et indépendants, à prix fixe. Devis gratuit.";
+const TITLE = "Création de site internet pour artisans et indépendants | Georgette";
+const DESC = "Création de site internet pour artisans, commerçants, indépendants et petites entreprises à Valence, en Drôme et en Ardèche. Dès 1 000 €, devis gratuit.";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -18,11 +18,18 @@ const JSON_LD = {
   logo: `${SITE}/apple-touch-icon.png`,
   priceRange: "À partir de 1 000 €",
   areaServed: [
+    { "@type": "City", name: "Valence" },
+    { "@type": "AdministrativeArea", name: "Drôme" },
     { "@type": "AdministrativeArea", name: "Ardèche" },
     { "@type": "Country", name: "France" },
   ],
   founder: { "@type": "Person", name: "Anna Bruyère", jobTitle: "Développeuse web, fondatrice de Georgette" },
   sameAs: [LINKEDIN],
+  makesOffer: [
+    { "@type": "Offer", name: "Offre Essentielle", price: "1000", priceCurrency: "EUR" },
+    { "@type": "Offer", name: "Offre Visibilité", price: "1800", priceCurrency: "EUR" },
+    { "@type": "Offer", name: "Maintenance", priceSpecification: { "@type": "UnitPriceSpecification", price: "40", priceCurrency: "EUR", unitText: "mois" } },
+  ],
   knowsAbout: ["Création de site vitrine", "Référencement local", "Google Business Profile", "Maintenance de site web"],
 };
 
@@ -52,12 +59,28 @@ function Index() {
         <div aria-hidden className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
         <div className="relative mx-auto max-w-4xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Atelier web en France</p>
-          <h1 className="mt-5 text-4xl font-semibold leading-tight text-foreground sm:text-6xl">Votre site web clair, rapide et prêt à convaincre vos clients</h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">Création de sites vitrine pour écoles, cabinets, artisans et indépendants, à prix fixe.</p>
+          <h1 className="mt-5 text-4xl font-semibold leading-tight text-foreground sm:text-6xl">Un site professionnel pour développer votre activité, attirer de nouveaux clients et inspirer confiance.</h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">Artisans, commerçants, indépendants et petites entreprises : je crée votre site vitrine, clair, rapide et bien référencé, à Valence, en Drôme, en Ardèche et partout en France à distance.</p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link to="/contact" className={btn}>Demander un devis gratuit</Link>
+            <Link to="/contact" className={btn}>Discutons de votre projet</Link>
+            <Link to="/creation-site-vitrine" className="inline-flex items-center justify-center rounded-full border-2 border-primary px-7 py-3 font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground">Découvrir les offres</Link>
             <Link to="/realisations" className="font-semibold text-primary underline-offset-4 hover:underline">Voir mes réalisations →</Link>
           </div>
+          <p className="mt-8 text-sm font-semibold text-muted-foreground">À partir de 1 000 € · Interlocutrice unique · Devis gratuit</p>
+        </div>
+      </section>
+
+      <section className="bg-card px-5 py-24">
+        <div className="mx-auto max-w-6xl">
+          <SectionTitle kicker="Ce que vous y gagnez" title="Un site qui travaille pour votre activité" />
+          <CardGrid items={BENEFITS} />
+        </div>
+      </section>
+
+      <section className="px-5 py-24">
+        <div className="mx-auto max-w-6xl">
+          <SectionTitle kicker="Pour qui ?" title="Des sites pensés pour les petites structures" />
+          <CardGrid items={AUDIENCES} cols="lg:grid-cols-4" tone="bg-card" />
         </div>
       </section>
 
@@ -81,6 +104,16 @@ function Index() {
 
       <section className="px-5 py-24">
         <div className="mx-auto max-w-6xl">
+          <SectionTitle kicker="Pourquoi travailler avec Georgette ?" title="Le sérieux d'un professionnel, la proximité en plus" />
+          <CardGrid items={WHY} tone="bg-card" />
+          <Reveal className="mx-auto mt-10 max-w-3xl rounded-2xl border border-dashed border-primary/40 p-7 text-center text-muted-foreground">
+            <p>Une agence apporte de grandes équipes, un outil de création en ligne laisse tout faire soi-même. Georgette se situe entre les deux : un site sur mesure, réalisé par une développeuse web depuis 2020, avec un suivi direct et un budget maîtrisé.</p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-card px-5 py-24">
+        <div className="mx-auto max-w-6xl">
           <SectionTitle kicker="Réalisations" title="Quelques sites mis en ligne" />
           <div className="grid gap-8 md:grid-cols-2">
             {PROJECTS.map((r, i) => (
@@ -101,7 +134,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-card px-5 py-24">
+      <section className="px-5 py-24">
         <div className="mx-auto max-w-6xl">
           <SectionTitle kicker="Comment ça se passe" title="Quatre étapes, une seule interlocutrice" />
           <Steps />
@@ -114,13 +147,13 @@ function Index() {
           <Reveal delay={120}>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">À propos</p>
             <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">Bonjour, je suis Anna Bruyère</h2>
-            <p className="mt-6 leading-relaxed text-muted-foreground">Développeuse web depuis 2020, j'ai fondé Georgette, un atelier web qui accompagne les petites structures — écoles, cabinets, artisans et indépendants — qui veulent un site sérieux sans se perdre dans la technique.</p>
+            <p className="mt-6 leading-relaxed text-muted-foreground">Développeuse web depuis 2020, j'ai fondé Georgette, un atelier web qui accompagne les petites structures — artisans, commerçants, indépendants et petites entreprises — qui veulent un site sérieux sans se perdre dans la technique.</p>
             <Link to="/contact" className="mt-6 inline-block font-semibold text-primary hover:underline">En savoir plus sur moi →</Link>
           </Reveal>
         </div>
       </section>
 
-      <CtaBand />
+      <CtaBand title="Demander un devis gratuit" />
     </SiteLayout>
   );
 }

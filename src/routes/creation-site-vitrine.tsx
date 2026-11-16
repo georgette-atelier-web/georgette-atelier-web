@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import { SiteLayout, SectionTitle, PageHero, pageHead, Steps, CtaBand } from "@/components/site";
+import { SiteLayout, SectionTitle, PageHero, pageHead, Steps, CtaBand, btn } from "@/components/site";
 
 const TITLE = "Création de site vitrine à prix fixe | Georgette, atelier web";
-const DESC = "Offres de création de site vitrine en France : Vitrine dès 1 000 €, Vitrine + Référencement local dès 1 800 €, maintenance dès 40 €/mois. Paiement en 2 ou 3 fois.";
+const DESC = "Site vitrine pour indépendant, artisan ou commerce : offre Essentielle dès 1 000 €, Visibilité dès 1 800 €, maintenance dès 40 €/mois. Valence, Drôme, Ardèche.";
 
 export const Route = createFileRoute("/creation-site-vitrine")({
   head: () => pageHead("/creation-site-vitrine", TITLE, DESC),
@@ -11,9 +11,9 @@ export const Route = createFileRoute("/creation-site-vitrine")({
 });
 
 const OFFERS = [
-  { t: "Vitrine", p: "1 000 €", u: "", f: ["3 à 5 pages", "Design responsive", "Formulaire de contact", "Mise en ligne incluse"], hl: false },
-  { t: "Vitrine + Référencement local", p: "1 800 €", u: "", f: ["Tout le pack Vitrine", "Optimisation pour Google", "Création ou refonte de la fiche Google Business", "Mots-clés locaux"], hl: true },
-  { t: "Maintenance", p: "40 €", u: "/mois", f: ["Hébergement", "Mises à jour", "Petites modifications", "Sauvegardes régulières"], hl: false },
+  { t: "Essentielle", p: "1 000 €", u: "", f: ["3 à 5 pages", "Adapté au mobile et à l'ordinateur", "Formulaire de contact", "Mise en ligne incluse"], hl: false, note: "" },
+  { t: "Visibilité", p: "1 800 €", u: "", f: ["Tout le contenu de l'offre Essentielle", "Optimisation pour Google", "Création ou refonte de la fiche Google Business", "Mots-clés locaux"], hl: true, note: "Aucun positionnement sur Google ne peut être garanti." },
+  { t: "Maintenance", p: "40 €", u: "/mois", f: ["Hébergement", "Mises à jour", "Petites modifications de contenu, dans une limite définie au devis", "Sauvegardes régulières"], hl: false, note: "" },
 ];
 
 function Page() {
@@ -34,11 +34,17 @@ function Page() {
                   <ul className="mt-6 flex-1 space-y-3">
                     {o.f.map((x) => <li key={x} className="flex gap-3"><span className="text-accent" aria-hidden>✓</span>{x}</li>)}
                   </ul>
+                  {o.note && <p className="mt-4 text-xs text-primary-foreground/75">{o.note}</p>}
                   <Link to="/contact" className={`mt-8 rounded-full px-6 py-3 text-center font-semibold transition ${o.hl ? "bg-accent text-accent-foreground hover:bg-accent/90" : "border border-primary text-primary hover:bg-primary hover:text-primary-foreground"}`}>Demander un devis</Link>
                 </article>
               </Reveal>
             ))}
           </div>
+          <Reveal className="mx-auto mt-10 max-w-3xl rounded-2xl border bg-card p-8 text-center">
+            <h2 className="text-2xl font-semibold text-foreground">Chaque projet est différent</h2>
+            <p className="mt-3 text-muted-foreground">Besoin d'une page en plus, d'une boutique simple ou d'un accompagnement particulier ? Je vous prépare une proposition adaptée.</p>
+            <Link to="/contact" className={`${btn} mt-6`}>Demander un devis personnalisé</Link>
+          </Reveal>
           <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground">Règlement en 2 ou 3 fois sans frais possible sur les projets de création.</p>
           <p className="mx-auto mt-2 max-w-2xl text-center text-sm text-muted-foreground">
             Envie d'en savoir plus sur le référencement local ou la maintenance ? <Link to="/referencement-maintenance" className="font-semibold text-primary hover:underline">Voir le détail</Link>.
