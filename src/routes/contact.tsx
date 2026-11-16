@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 import { SiteLayout, SectionTitle, pageHead, Portrait, ContactForm, Faq, btn } from "@/components/site";
 
 const TITLE = "Contact et devis gratuit | Georgette, atelier web";
-const DESC = "Développeuse web freelance depuis 2020, Anna Bruyère crée des sites pour Valence, la Drôme, l'Ardèche et toute la France. Devis gratuit, réponse sous 48 h.";
+const DESC = "Développeuse web freelance depuis 2020, Anna Bruyère crée des sites pour la Drôme, l'Ardèche et toute la France. Devis gratuit, réponse sous 48 h.";
 
 export const Route = createFileRoute("/contact")({
   head: () => pageHead("/contact", TITLE, DESC),

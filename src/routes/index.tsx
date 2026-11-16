@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { SiteLayout, SectionTitle, pageHead, btn, BENEFITS, AUDIENCES, WHY, CardGrid, SERVICES, PROJECTS, Steps, Portrait, CtaBand, EMAIL, LINKEDIN, SITE } from "@/components/site";
 
 const TITLE = "Création de site internet pour artisans et indépendants | Georgette";
-const DESC = "Création de site internet pour artisans, commerçants, indépendants et petites entreprises à Valence, en Drôme et en Ardèche. Dès 1 000 €, devis gratuit.";
+const DESC = "Création de site internet pour artisans, commerçants, indépendants et petites entreprises en Drôme et en Ardèche. Dès 1 000 €, devis gratuit.";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -18,7 +18,6 @@ const JSON_LD = {
   logo: `${SITE}/apple-touch-icon.png`,
   priceRange: "À partir de 1 000 €",
   areaServed: [
-    { "@type": "City", name: "Valence" },
     { "@type": "AdministrativeArea", name: "Drôme" },
     { "@type": "AdministrativeArea", name: "Ardèche" },
     { "@type": "Country", name: "France" },
@@ -60,7 +59,7 @@ function Index() {
         <div className="relative mx-auto max-w-4xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Atelier web en France</p>
           <h1 className="mt-5 text-4xl font-semibold leading-tight text-foreground sm:text-6xl">Un site qui attire vos clients et inspire confiance</h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">Artisans, commerçants, indépendants et petites entreprises : je crée votre site vitrine, clair, rapide et bien référencé, à Valence, en Drôme, en Ardèche et partout en France à distance.</p>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">Artisans, commerçants, indépendants et petites entreprises : je crée votre site vitrine, clair, rapide et bien référencé, en Drôme, en Ardèche et partout en France à distance.</p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link to="/contact" className={btn}>Discutons de votre projet</Link>
             <Link to="/creation-site-vitrine" className="inline-flex items-center justify-center rounded-full border-2 border-primary px-7 py-3 font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground">Découvrir les offres</Link>
@@ -106,9 +105,6 @@ function Index() {
         <div className="mx-auto max-w-6xl">
           <SectionTitle kicker="Pourquoi travailler avec Georgette ?" title="Le sérieux d'un professionnel, la proximité en plus" />
           <CardGrid items={WHY} tone="bg-card" />
-          <Reveal className="mx-auto mt-10 max-w-3xl rounded-2xl border border-dashed border-primary/40 p-7 text-center text-muted-foreground">
-            <p>Derrière Georgette, il y a une seule personne : moi, Anna, développeuse web depuis 2020. Je m'occupe de votre site de A à Z, sans intermédiaire, et vous savez toujours à qui vous adresser.</p>
-          </Reveal>
         </div>
       </section>
 

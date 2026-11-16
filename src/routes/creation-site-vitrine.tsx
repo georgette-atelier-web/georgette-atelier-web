@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 import { SiteLayout, SectionTitle, PageHero, pageHead, Steps, CtaBand, btn } from "@/components/site";
 
 const TITLE = "Création de site vitrine à prix fixe | Georgette, atelier web";
-const DESC = "Site vitrine pour indépendant, artisan ou commerce : offre Essentielle dès 1 000 €, Visibilité dès 1 800 €, maintenance dès 40 €/mois. Valence, Drôme, Ardèche.";
+const DESC = "Site vitrine pour indépendant, artisan ou commerce : offre Essentielle dès 1 000 €, Visibilité dès 1 800 €, maintenance dès 40 €/mois. Drôme et Ardèche.";
 
 export const Route = createFileRoute("/creation-site-vitrine")({
   head: () => pageHead("/creation-site-vitrine", TITLE, DESC),

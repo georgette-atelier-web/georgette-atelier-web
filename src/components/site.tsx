@@ -111,7 +111,7 @@ function Footer() {
             <img src={logo} alt="Logo Georgette : tête de bouledogue français" width={256} height={256} className="h-12 w-12 rounded-full bg-card/90 p-1" />
             <p className="font-display text-xl font-bold italic">Georgette — atelier web</p>
           </div>
-          <p className="mt-2 text-primary-foreground/80">Anna Bruyère, développeuse web freelance · Création de sites internet à Valence, en Drôme, en Ardèche et partout en France à distance</p>
+          <p className="mt-2 text-primary-foreground/80">Anna Bruyère, développeuse web freelance · Création de sites internet en Drôme, en Ardèche et partout en France à distance</p>
         </div>
         <nav className="grid gap-2 sm:grid-cols-2" aria-label="Plan du site">
           {NAV.map((n) => <Link key={n.to} to={n.to} className="hover:underline">{n.label}</Link>)}
@@ -142,7 +142,7 @@ function MobileContactBar() {
 
 export const SERVICES = [
   { n: "01", t: "Site vitrine sur mesure", d: "Un site à votre image qui présente clairement vos services, rassure vos visiteurs et les incite à vous contacter.", to: "/creation-site-vitrine" },
-  { n: "02", t: "Référencement local & Google Business", d: "Être trouvé par les clients près de chez vous, à Valence, en Drôme et en Ardèche : pages optimisées, mots-clés locaux et fiche Google Business soignée.", to: "/referencement-maintenance" },
+  { n: "02", t: "Référencement local & Google Business", d: "Être trouvé par les clients près de chez vous, en Drôme et en Ardèche : pages optimisées, mots-clés locaux et fiche Google Business soignée.", to: "/referencement-maintenance" },
   { n: "03", t: "Maintenance et hébergement", d: "Un site toujours à jour, sécurisé et sauvegardé, sans que vous ayez à y penser. Vous vous concentrez sur votre métier.", to: "/referencement-maintenance" },
 ] as const;
 
