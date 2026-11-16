@@ -59,7 +59,7 @@ function Index() {
         <div aria-hidden className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
         <div className="relative mx-auto max-w-4xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Atelier web en France</p>
-          <h1 className="mt-5 text-4xl font-semibold leading-tight text-foreground sm:text-6xl">Un site professionnel pour développer votre activité, attirer de nouveaux clients et inspirer confiance.</h1>
+          <h1 className="mt-5 text-4xl font-semibold leading-tight text-foreground sm:text-6xl">Un site qui attire vos clients et inspire confiance</h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">Artisans, commerçants, indépendants et petites entreprises : je crée votre site vitrine, clair, rapide et bien référencé, à Valence, en Drôme, en Ardèche et partout en France à distance.</p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link to="/contact" className={btn}>Discutons de votre projet</Link>
@@ -107,7 +107,7 @@ function Index() {
           <SectionTitle kicker="Pourquoi travailler avec Georgette ?" title="Le sérieux d'un professionnel, la proximité en plus" />
           <CardGrid items={WHY} tone="bg-card" />
           <Reveal className="mx-auto mt-10 max-w-3xl rounded-2xl border border-dashed border-primary/40 p-7 text-center text-muted-foreground">
-            <p>Une agence apporte de grandes équipes, un outil de création en ligne laisse tout faire soi-même. Georgette se situe entre les deux : un site sur mesure, réalisé par une développeuse web depuis 2020, avec un suivi direct et un budget maîtrisé.</p>
+            <p>Derrière Georgette, il y a une seule personne : moi, Anna, développeuse web depuis 2020. Je m'occupe de votre site de A à Z, sans intermédiaire, et vous savez toujours à qui vous adresser.</p>
           </Reveal>
         </div>
       </section>
@@ -153,7 +153,7 @@ function Index() {
         </div>
       </section>
 
-      <CtaBand title="Demander un devis gratuit" />
+      <CtaBand />
     </SiteLayout>
   );
 }

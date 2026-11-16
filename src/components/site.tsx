@@ -158,7 +158,7 @@ export const AUDIENCES = [
   ["Artisans et bâtiment", "Plombiers, électriciens, menuisiers, paysagistes : montrez vos chantiers et recevez des demandes de devis."],
   ["Commerçants et restaurateurs", "Horaires, carte, produits, accès : l'essentiel pour donner envie de venir."],
   ["Indépendants et professions libérales", "Consultants, thérapeutes, avocats, coachs : une vitrine sérieuse pour votre expertise."],
-  ["Petites entreprises et associations", "Un site clair pour présenter votre structure, vos actions et vos contacts."],
+  ["Écoles, associations et petites entreprises", "Un site clair pour présenter votre établissement ou votre structure, vos actualités et vos contacts."],
 ] as const;
 
 export const WHY = [
