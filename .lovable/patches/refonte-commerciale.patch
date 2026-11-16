@@ -1,0 +1,382 @@
+diff --git a/src/components/site.tsx b/src/components/site.tsx
+index 85d7724..a071739 100644
+--- a/src/components/site.tsx
++++ b/src/components/site.tsx
+@@ -101,7 +101,7 @@ function Header() {
+ 
+ function Footer() {
+   return (
+-    <footer className="border-t bg-primary px-5 py-12 text-primary-foreground">
++    <footer className="border-t bg-primary px-5 pb-28 pt-12 md:pb-12 text-primary-foreground">
+       <div className="mx-auto grid max-w-6xl gap-8 text-sm md:grid-cols-[2fr_3fr]">
+         <div>
+           <div className="flex items-center gap-3">
+@@ -125,13 +125,22 @@ function Footer() {
+ }
+ 
+ export function SiteLayout({ children }: { children: ReactNode }) {
+-  return (<><Header /><main>{children}</main><Footer /></>);
++  return (<><Header /><main>{children}</main><Footer /><MobileContactBar /></>);
++}
++
++function MobileContactBar() {
++  return (
++    <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t bg-background/95 p-2 backdrop-blur md:hidden">
++      <a href={`mailto:${EMAIL}`} className="rounded-full border border-primary px-3 py-2.5 text-center text-sm font-semibold text-primary">Écrire un e-mail</a>
++      <Link to="/contact" hash="devis" className="rounded-full bg-accent px-3 py-2.5 text-center text-sm font-bold text-accent-foreground">Demander un devis</Link>
++    </div>
++  );
+ }
+ 
+ export const SERVICES = [
+-  { n: "01", t: "Site vitrine sur mesure", d: "Un site à votre image, simple à parcourir sur mobile comme sur ordinateur, pensé pour transformer les visiteurs en clients.", to: "/creation-site-vitrine" },
+-  { n: "02", t: "Référencement local & Google Business", d: "Être trouvé par les gens près de chez vous : optimisation des pages, mots-clés locaux et fiche Google Business soignée.", to: "/referencement-maintenance" },
+-  { n: "03", t: "Maintenance et hébergement", d: "Je m'occupe de l'hébergement, des mises à jour et des petites modifications. Vous vous concentrez sur votre métier.", to: "/referencement-maintenance" },
++  { n: "01", t: "Site vitrine sur mesure", d: "Un site à votre image qui présente clairement vos services, rassure vos visiteurs et leur donne envie de vous contacter.", to: "/creation-site-vitrine" },
++  { n: "02", t: "Référencement local & Google Business", d: "Être trouvé par les clients près de chez vous, à Valence, dans la Drôme, en Ardèche ou ailleurs : pages optimisées et fiche Google Business soignée.", to: "/referencement-maintenance" },
++  { n: "03", t: "Maintenance et hébergement", d: "Un site toujours en ligne, sauvegardé et à jour, sans y penser. Vous vous concentrez sur votre métier.", to: "/referencement-maintenance" },
+ ] as const;
+ 
+ export const PROJECTS = [
+@@ -147,6 +156,46 @@ export const PROJECTS = [
+     author: "Le cabinet Aetius" },
+ ] as const;
+ 
++export const BENEFITS = [
++  ["Une présence professionnelle", "Un site soigné qui inspire confiance dès la première visite."],
++  ["Plus de visibilité locale", "Être trouvé par les clients qui cherchent votre métier près de chez eux."],
++  ["Rapide et adapté aux mobiles", "Un affichage net et rapide sur téléphone, tablette et ordinateur."],
++  ["Vos services mis en valeur", "Ce que vous proposez, présenté clairement, pour que vos visiteurs comprennent vite."],
++  ["Des demandes de devis simplifiées", "Un formulaire simple et vos coordonnées toujours à portée de clic."],
++] as const;
++
++export const AUDIENCES = [
++  ["Artisans et entreprises du bâtiment", "Montrez vos chantiers, votre zone d'intervention et recevez des demandes de devis."],
++  ["Commerçants et restaurateurs", "Horaires, carte, produits, accès : tout ce que vos clients cherchent avant de venir."],
++  ["Indépendants et professions libérales", "Un site sobre qui présente votre expertise et facilite la prise de contact."],
++  ["Petites entreprises et associations", "Une vitrine claire pour présenter votre activité, vos actions et vos actualités."],
++] as const;
++
++export const WHY = [
++  ["Une interlocutrice unique", "Du premier échange à la mise en ligne, et après : vous parlez toujours à la même personne."],
++  ["Une relation directe", "Vous échangez directement avec la développeuse qui crée votre site, pas avec un commercial."],
++  ["Adapté à votre budget", "Des solutions pensées pour les petites structures, sans fonctionnalités inutiles."],
++  ["Une approche technique sérieuse", "Développeuse web depuis 2020 : performance, affichage mobile et référencement soignés."],
++  ["Un accompagnement humain", "Pas besoin de maîtriser la technique : je vous explique tout simplement."],
++  ["Des tarifs transparents", "Un devis détaillé à prix fixe, sans mauvaise surprise."],
++] as const;
++
++export function CardGrid({ items, cols = "md:grid-cols-3", card = "bg-background" }: { items: readonly (readonly [string, string])[]; cols?: string; card?: string }) {
++  return (
++    <div className={`grid gap-6 sm:grid-cols-2 ${cols}`}>
++      {items.map(([t, d], i) => (
++        <Reveal key={t} delay={i * 80} className="h-full">
++          <article className={`h-full rounded-2xl border p-7 ${card}`}>
++            <span aria-hidden="true" className="text-accent">✦</span>
++            <h3 className="mt-3 text-lg font-semibold text-foreground">{t}</h3>
++            <p className="mt-2 leading-relaxed text-muted-foreground">{d}</p>
++          </article>
++        </Reveal>
++      ))}
++    </div>
++  );
++}
++
+ export const STEPS = [
+   ["Échange", "Un appel gratuit pour comprendre votre activité, vos clients et vos besoins."],
+   ["Devis", "Une proposition claire, à prix fixe, avec le contenu et le délai détaillés."],
+@@ -185,6 +234,7 @@ export const FAQ = [
+   ["Dois-je fournir moi-même les textes et les photos ?", "Si vous avez déjà des photos et des textes, je les intègre et les optimise pour le web. Si vous partez de zéro, pas d'inquiétude : je vous guide avec une trame simple pour poser vos idées, et je reformule pour que vos pages soient claires et agréables à lire."],
+   ["Mon site sera-t-il adapté aux téléphones et visible sur Google ?", "Oui, tous les sites conçus par Georgette sont pensés en priorité pour smartphone, s'affichent très rapidement et intègrent les bonnes pratiques de référencement naturel (balises, descriptions, vitesse de chargement, plan du site)."],
+   ["Que se passe-t-il après la mise en ligne ?", "Vous avez deux options : gérer votre site en toute autonomie grâce aux explications simples que je vous fournis, ou me confier sa maintenance mensuelle (hébergement, sauvegardes régulières, mises à jour de sécurité et petites modifications de contenu)."],
++  ["Dois-je m'y connaître en technique ?", "Non, pas du tout. Je m'occupe de toute la partie technique et je vous explique chaque étape avec des mots simples. Vous gardez la main sur le contenu, sans jargon."],
+ ] as const;
+ 
+ export function Faq() {
+@@ -208,7 +258,7 @@ export function Faq() {
+ const schema = z.object({
+   nom: z.string().trim().min(1, "Merci d'indiquer votre nom").max(100),
+   email: z.string().trim().email("Adresse e-mail invalide").max(255),
+-  structure: z.string().trim().max(150),
++  activite: z.string().trim().max(150),
+   message: z.string().trim().min(1, "Merci de décrire votre projet").max(2000),
+ });
+ 
+@@ -225,8 +275,8 @@ export function ContactForm() {
+       return;
+     }
+     setErrors({});
+-    const { nom, email, structure, message } = r.data;
+-    const body = `Nom : ${nom}\nE-mail : ${email}\nStructure : ${structure || "—"}\n\n${message}`;
++    const { nom, email, activite, message } = r.data;
++    const body = `Nom : ${nom}\nE-mail : ${email}\nActivité : ${activite || "—"}\n\n${message}`;
+     window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(`Demande de devis — ${nom}`)}&body=${encodeURIComponent(body)}`;
+     setSent(true);
+   };
+@@ -236,11 +286,11 @@ export function ContactForm() {
+     <form onSubmit={onSubmit} noValidate className="grid gap-5 rounded-3xl border bg-card p-6 sm:grid-cols-2 sm:p-10">
+       <label className="text-sm font-medium text-foreground">Nom *<input name="nom" autoComplete="name" required className={field} />{err("nom")}</label>
+       <label className="text-sm font-medium text-foreground">E-mail *<input name="email" type="email" autoComplete="email" required className={field} />{err("email")}</label>
+-      <label className="text-sm font-medium text-foreground sm:col-span-2">Structure (école, cabinet, entreprise…)<input name="structure" className={field} /></label>
++      <label className="text-sm font-medium text-foreground sm:col-span-2">Votre activité (artisan, commerce, cabinet…)<input name="activite" className={field} /></label>
+       <label className="text-sm font-medium text-foreground sm:col-span-2">Votre projet *<textarea name="message" rows={5} required className={field} />{err("message")}</label>
+       <div className="flex flex-col items-start gap-3 sm:col-span-2">
+         <button type="submit" className={btn}>Envoyer ma demande</button>
+-        <p className="text-sm text-muted-foreground">Réponse sous 48 h.</p>
++        <p className="text-sm text-muted-foreground">Devis gratuit et sans engagement, réponse sous 48 h.</p>
+         {sent && <p className="text-sm text-primary">Votre messagerie s'ouvre avec votre demande pré-remplie. Il ne reste qu'à l'envoyer !</p>}
+         <p className="text-sm text-muted-foreground">Ou écrivez-moi directement : <a href={`mailto:${EMAIL}`} className="font-semibold text-primary hover:underline">{EMAIL}</a></p>
+         <p className="text-sm text-muted-foreground">Retrouvez-moi aussi sur <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-primary hover:underline"><Linkedin className="size-4" aria-hidden="true" /> LinkedIn</a></p>
+@@ -254,7 +304,7 @@ export function CtaBand({ title = "Un projet de site ? Parlons-en." }: { title?:
+     <section className="px-5 py-20">
+       <Reveal className="mx-auto max-w-3xl rounded-3xl bg-primary px-8 py-12 text-center text-primary-foreground">
+         <h2 className="text-2xl font-semibold sm:text-3xl">{title}</h2>
+-        <p className="mt-3 text-primary-foreground/80">Devis gratuit et détaillé, réponse sous 48 h.</p>
++        <p className="mt-3 text-primary-foreground/80">Devis gratuit et sans engagement, réponse sous 48 h.</p>
+         <Link to="/contact" className="mt-7 inline-flex rounded-full bg-accent px-7 py-3.5 font-semibold text-accent-foreground transition hover:bg-accent/90">Demander un devis gratuit</Link>
+       </Reveal>
+     </section>
+diff --git a/src/routes/contact.tsx b/src/routes/contact.tsx
+index 8ab8c4c..6ffe541 100644
+--- a/src/routes/contact.tsx
++++ b/src/routes/contact.tsx
+@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
+ import { SiteLayout, SectionTitle, pageHead, Portrait, ContactForm, Faq, btn } from "@/components/site";
+ 
+ const TITLE = "Contact et devis gratuit | Georgette, atelier web";
+-const DESC = "Contactez Anna Bruyère, développeuse web freelance en France depuis 2020, pour un devis gratuit de site vitrine. Réponse sous 48 h.";
++const DESC = "Contactez Anna Bruyère, développeuse web freelance depuis 2020 (Drôme-Ardèche, à distance partout en France) : devis gratuit et sans engagement, réponse sous 48 h.";
+ 
+ export const Route = createFileRoute("/contact")({
+   head: () => pageHead("/contact", TITLE, DESC),
+@@ -20,16 +20,16 @@ function Page() {
+             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">À propos et contact</p>
+             <h1 className="mt-3 text-4xl font-semibold text-foreground sm:text-5xl">Bonjour, je suis Anna Bruyère</h1>
+             <div className="mt-6 space-y-4 leading-relaxed text-muted-foreground">
+-              <p>Développeuse web depuis 2020, j'ai fondé Georgette, un atelier web qui accompagne les petites structures — écoles, cabinets, artisans et indépendants — qui veulent un site sérieux sans se perdre dans la technique.</p>
++              <p>Développeuse web depuis 2020, j'ai fondé Georgette, un atelier web qui accompagne les petites structures — artisans, commerçants, indépendants et petites entreprises — qui veulent un site sérieux sans se perdre dans la technique.</p>
+               <p>Mon approche : écouter, simplifier, livrer un site rapide et facile à comprendre pour vos visiteurs. Vous avez une seule interlocutrice du premier échange à la mise en ligne, et après.</p>
+             </div>
+-            <a href="#devis" className={`${btn} mt-8`}>Demander un devis gratuit</a>
++            <a href="#devis" className={`${btn} mt-8`}>Discutons de votre projet</a>
+           </Reveal>
+         </div>
+       </section>
+       <section id="devis" className="scroll-mt-28 bg-card px-5 py-24">
+         <div className="mx-auto max-w-3xl">
+-          <SectionTitle kicker="Contact" title="Demandez votre devis gratuit" intro="Décrivez votre projet en quelques lignes, je vous réponds sous 48 h." />
++          <SectionTitle kicker="Contact" title="Demandez votre devis gratuit" intro="Décrivez votre projet en quelques lignes : c'est gratuit et sans engagement, je vous réponds sous 48 h." />
+           <Reveal><ContactForm /></Reveal>
+           <p className="mt-6 text-center text-sm text-muted-foreground">Pas encore sûr de l'offre ? <Link to="/creation-site-vitrine" className="font-semibold text-primary hover:underline">Comparer les offres</Link></p>
+         </div>
+diff --git a/src/routes/creation-site-vitrine.tsx b/src/routes/creation-site-vitrine.tsx
+index a284700..ba66c93 100644
+--- a/src/routes/creation-site-vitrine.tsx
++++ b/src/routes/creation-site-vitrine.tsx
+@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
+ import { Reveal } from "@/components/Reveal";
+ import { SiteLayout, SectionTitle, PageHero, pageHead, Steps, CtaBand } from "@/components/site";
+ 
+-const TITLE = "Création de site vitrine à prix fixe | Georgette, atelier web";
+-const DESC = "Offres de création de site vitrine en France : Vitrine dès 1 000 €, Vitrine + Référencement local dès 1 800 €, maintenance dès 40 €/mois. Paiement en 2 ou 3 fois.";
++const TITLE = "Tarifs création de site vitrine dès 1 000 € | Georgette, atelier web";
++const DESC = "Création de site vitrine pour indépendants et artisans : offre Essentielle dès 1 000 €, offre Visibilité dès 1 800 €, maintenance dès 40 €/mois. Devis gratuit, paiement en 2 ou 3 fois.";
+ 
+ export const Route = createFileRoute("/creation-site-vitrine")({
+   head: () => pageHead("/creation-site-vitrine", TITLE, DESC),
+@@ -11,15 +11,15 @@ export const Route = createFileRoute("/creation-site-vitrine")({
+ });
+ 
+ const OFFERS = [
+-  { t: "Vitrine", p: "1 000 €", u: "", f: ["3 à 5 pages", "Design responsive", "Formulaire de contact", "Mise en ligne incluse"], hl: false },
+-  { t: "Vitrine + Référencement local", p: "1 800 €", u: "", f: ["Tout le pack Vitrine", "Optimisation pour Google", "Création ou refonte de la fiche Google Business", "Mots-clés locaux"], hl: true },
+-  { t: "Maintenance", p: "40 €", u: "/mois", f: ["Hébergement", "Mises à jour", "Petites modifications", "Sauvegardes régulières"], hl: false },
++  { t: "Essentielle", p: "1 000 €", u: "", d: "Création d'un site vitrine personnalisé de 3 à 5 pages.", f: ["Design personnalisé", "Développement sur mesure", "Site responsive (ordinateur, tablette et mobile)", "Intégration de vos textes et photos", "Formulaire de contact", "Optimisation SEO technique de base", "Optimisation des performances", "Mise en ligne", "Accompagnement à la prise en main"], hl: false, note: "" },
++  { t: "Visibilité", p: "1 800 €", u: "", d: "Un site vitrine avec accompagnement au référencement local.", f: ["Tout ce qui est inclus dans l'offre Essentielle", "Recherche de mots-clés locaux", "Optimisation SEO des pages", "Structuration des contenus pour le référencement", "Optimisation des informations locales", "Accompagnement à la création ou à l'optimisation de la fiche Google Business Profile"], hl: true, note: "Aucun positionnement sur Google ne peut être garanti : je mets toutes les bonnes pratiques en place pour vous donner les meilleures chances." },
++  { t: "Maintenance", p: "40 €", u: "/mois", d: "Un accompagnement après la mise en ligne.", f: ["Hébergement", "Sauvegardes régulières", "Mises à jour techniques", "Surveillance et sécurité", "Petites modifications de contenu, dans une limite définie au devis"], hl: false, note: "" },
+ ];
+ 
+ function Page() {
+   return (
+     <SiteLayout>
+-      <PageHero kicker="Offres et services" title="Création de site vitrine à prix fixe" intro="Des tarifs clairs, sans surprise. Chaque projet fait l'objet d'un devis détaillé et gratuit." />
++      <PageHero kicker="Offres et services" title="Création de site vitrine : des offres claires, à prix fixe" intro="Des tarifs transparents, sans mauvaise surprise. Chaque projet fait l'objet d'un devis détaillé, gratuit et sans engagement." />
+       <section className="px-5 pb-24">
+         <div className="mx-auto max-w-6xl">
+           <h2 className="sr-only">Nos trois offres</h2>
+@@ -28,17 +28,24 @@ function Page() {
+               <Reveal key={o.t} delay={i * 100} className="h-full">
+                 <article className={`flex h-full flex-col rounded-2xl border p-8 ${o.hl ? "bg-primary text-primary-foreground shadow-2xl shadow-primary/25" : "bg-card"}`}>
+                   {o.hl && <span className="mb-4 self-start rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">Le plus demandé</span>}
+-                  <h3 className="text-2xl font-semibold">{o.t}</h3>
++                  <h3 className="text-2xl font-semibold">{o.hl || o.t === "Essentielle" ? `Offre ${o.t}` : o.t}</h3>
++                  <p className={`mt-2 text-sm ${o.hl ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{o.d}</p>
+                   <p className={`mt-4 text-sm ${o.hl ? "text-primary-foreground/75" : "text-muted-foreground"}`}>à partir de</p>
+                   <p className="font-display text-4xl font-semibold">{o.p}<span className="text-lg font-normal">{o.u}</span></p>
+                   <ul className="mt-6 flex-1 space-y-3">
+                     {o.f.map((x) => <li key={x} className="flex gap-3"><span className="text-accent" aria-hidden>✓</span>{x}</li>)}
+                   </ul>
++                  {o.note && <p className="mt-5 text-xs text-primary-foreground/75">{o.note}</p>}
+                   <Link to="/contact" className={`mt-8 rounded-full px-6 py-3 text-center font-semibold transition ${o.hl ? "bg-accent text-accent-foreground hover:bg-accent/90" : "border border-primary text-primary hover:bg-primary hover:text-primary-foreground"}`}>Demander un devis</Link>
+                 </article>
+               </Reveal>
+             ))}
+           </div>
++          <Reveal className="mx-auto mt-12 max-w-3xl rounded-2xl border border-dashed border-accent bg-card p-8 text-center">
++            <h2 className="text-2xl font-semibold text-foreground">Chaque projet est différent</h2>
++            <p className="mt-3 text-muted-foreground">Votre besoin ne rentre pas exactement dans une offre ? Je vous propose un devis personnalisé, gratuit et sans engagement.</p>
++            <Link to="/contact" className="mt-6 inline-flex rounded-full bg-primary px-7 py-3.5 font-semibold text-primary-foreground transition hover:bg-primary/90">Demander un devis gratuit</Link>
++          </Reveal>
+           <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground">Règlement en 2 ou 3 fois sans frais possible sur les projets de création.</p>
+           <p className="mx-auto mt-2 max-w-2xl text-center text-sm text-muted-foreground">
+             Envie d'en savoir plus sur le référencement local ou la maintenance ? <Link to="/referencement-maintenance" className="font-semibold text-primary hover:underline">Voir le détail</Link>.
+diff --git a/src/routes/index.tsx b/src/routes/index.tsx
+index 9aa7859..60c53a2 100644
+--- a/src/routes/index.tsx
++++ b/src/routes/index.tsx
+@@ -1,10 +1,10 @@
+ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+ import { useEffect } from "react";
+ import { Reveal } from "@/components/Reveal";
+-import { SiteLayout, SectionTitle, pageHead, btn, SERVICES, PROJECTS, Steps, Portrait, CtaBand, EMAIL, LINKEDIN, SITE } from "@/components/site";
++import { SiteLayout, SectionTitle, pageHead, btn, CardGrid, BENEFITS, AUDIENCES, WHY, SERVICES, PROJECTS, Steps, Portrait, CtaBand, EMAIL, LINKEDIN, SITE } from "@/components/site";
+ 
+-const TITLE = "Création de site vitrine | Georgette, atelier web";
+-const DESC = "Georgette, atelier web en France : création de sites vitrine clairs et rapides pour écoles, cabinets, artisans et indépendants, à prix fixe. Devis gratuit.";
++const TITLE = "Création de site internet pour artisans et indépendants | Georgette";
++const DESC = "Développeuse web freelance : création de sites vitrine sur mesure pour artisans, commerçants et indépendants à Valence, en Drôme-Ardèche et partout en France. Dès 1 000 €.";
+ 
+ const JSON_LD = {
+   "@context": "https://schema.org",
+@@ -18,11 +18,18 @@ const JSON_LD = {
+   logo: `${SITE}/apple-touch-icon.png`,
+   priceRange: "À partir de 1 000 €",
+   areaServed: [
++    { "@type": "City", name: "Valence" },
++    { "@type": "AdministrativeArea", name: "Drôme" },
+     { "@type": "AdministrativeArea", name: "Ardèche" },
+     { "@type": "Country", name: "France" },
+   ],
+   founder: { "@type": "Person", name: "Anna Bruyère", jobTitle: "Développeuse web, fondatrice de Georgette" },
+   sameAs: [LINKEDIN],
++  makesOffer: [
++    { "@type": "Offer", name: "Offre Essentielle", price: "1000", priceCurrency: "EUR" },
++    { "@type": "Offer", name: "Offre Visibilité", price: "1800", priceCurrency: "EUR" },
++    { "@type": "Offer", name: "Maintenance", price: "40", priceCurrency: "EUR", description: "Par mois" },
++  ],
+   knowsAbout: ["Création de site vitrine", "Référencement local", "Google Business Profile", "Maintenance de site web"],
+ };
+ 
+@@ -51,13 +58,28 @@ function Index() {
+       <section className="relative overflow-hidden px-5 pb-24 pt-36 sm:pt-44">
+         <div aria-hidden className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
+         <div className="relative mx-auto max-w-4xl text-center">
+-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Atelier web en France</p>
+-          <h1 className="mt-5 text-4xl font-semibold leading-tight text-foreground sm:text-6xl">Votre site web clair, rapide et prêt à convaincre vos clients</h1>
+-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">Création de sites vitrine pour écoles, cabinets, artisans et indépendants, à prix fixe.</p>
++          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Développeuse web freelance · Valence, Drôme, Ardèche</p>
++          <h1 className="mt-5 text-4xl font-semibold leading-tight text-foreground sm:text-6xl">Un site professionnel pour développer votre activité, attirer de nouveaux clients et inspirer confiance</h1>
++          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">Je crée des sites vitrines sur mesure pour les indépendants, artisans et petites entreprises. Un accompagnement personnalisé, un interlocuteur unique et des tarifs transparents.</p>
+           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+-            <Link to="/contact" className={btn}>Demander un devis gratuit</Link>
+-            <Link to="/realisations" className="font-semibold text-primary underline-offset-4 hover:underline">Voir mes réalisations →</Link>
++            <Link to="/contact" className={btn}>Discutons de votre projet</Link>
++            <Link to="/creation-site-vitrine" className="inline-flex items-center justify-center rounded-full border border-primary px-7 py-3.5 font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground">Découvrir les offres</Link>
+           </div>
++          <p className="mt-8 text-sm font-semibold text-muted-foreground">À partir de 1 000 € · Interlocutrice unique · Devis gratuit · <Link to="/realisations" className="text-primary hover:underline">Voir mes réalisations</Link></p>
++        </div>
++      </section>
++
++      <section className="bg-card px-5 py-24">
++        <div className="mx-auto max-w-6xl">
++          <SectionTitle kicker="Ce que vous y gagnez" title="Un site qui travaille pour votre activité" />
++          <CardGrid items={BENEFITS} />
++        </div>
++      </section>
++
++      <section className="px-5 py-24">
++        <div className="mx-auto max-w-6xl">
++          <SectionTitle kicker="Pour qui ?" title="Des sites pensés pour les petites structures" intro="Pas besoin de maîtriser la technique : je m'occupe de tout, vous restez concentré sur votre métier." />
++          <CardGrid items={AUDIENCES} cols="lg:grid-cols-4" card="bg-card" />
+         </div>
+       </section>
+ 
+@@ -80,6 +102,14 @@ function Index() {
+       </section>
+ 
+       <section className="px-5 py-24">
++        <div className="mx-auto max-w-6xl">
++          <SectionTitle kicker="Pourquoi travailler avec Georgette ?" title="Une développeuse à vos côtés, pas une agence impersonnelle" intro="Contrairement à un outil de création en libre-service, vous n'êtes jamais seul ; contrairement à une grande agence, vous parlez directement à la personne qui crée votre site." />
++          <CardGrid items={WHY} card="bg-card" />
++          <div className="mt-10 text-center"><Link to="/contact" className={btn}>Demander un devis gratuit</Link></div>
++        </div>
++      </section>
++
++      <section className="bg-card px-5 py-24">
+         <div className="mx-auto max-w-6xl">
+           <SectionTitle kicker="Réalisations" title="Quelques sites mis en ligne" />
+           <div className="grid gap-8 md:grid-cols-2">
+@@ -101,14 +131,14 @@ function Index() {
+         </div>
+       </section>
+ 
+-      <section className="bg-card px-5 py-24">
++      <section className="px-5 py-24">
+         <div className="mx-auto max-w-6xl">
+           <SectionTitle kicker="Comment ça se passe" title="Quatre étapes, une seule interlocutrice" />
+           <Steps />
+         </div>
+       </section>
+ 
+-      <section className="px-5 py-24">
++      <section className="bg-card px-5 py-24">
+         <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-[2fr_3fr]">
+           <Reveal><Portrait /></Reveal>
+           <Reveal delay={120}>
+@@ -120,7 +150,7 @@ function Index() {
+         </div>
+       </section>
+ 
+-      <CtaBand />
++      <CtaBand title="Prêt à donner une vraie vitrine à votre activité ?" />
+     </SiteLayout>
+   );
+ }
+diff --git a/src/routes/referencement-maintenance.tsx b/src/routes/referencement-maintenance.tsx
+index 1d94080..a89db9a 100644
+--- a/src/routes/referencement-maintenance.tsx
++++ b/src/routes/referencement-maintenance.tsx
+@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
+ import { SiteLayout, PageHero, pageHead, CtaBand } from "@/components/site";
+ 
+ const TITLE = "Référencement local et maintenance de site web | Georgette";
+-const DESC = "Référencement local (pages optimisées, mots-clés locaux, fiche Google Business) et maintenance mensuelle de site web dès 40 €/mois, par Georgette, atelier web en France.";
++const DESC = "Référencement local à Valence, dans la Drôme et l'Ardèche : pages optimisées, mots-clés locaux, fiche Google Business. Maintenance de site web dès 40 €/mois.";
+ 
+ export const Route = createFileRoute("/referencement-maintenance")({
+   head: () => pageHead("/referencement-maintenance", TITLE, DESC),
+@@ -13,12 +13,12 @@ export const Route = createFileRoute("/referencement-maintenance")({
+ const SEO = [
+   ["Optimisation des pages", "Titres, descriptions, structure des contenus et vitesse d'affichage : chaque page est préparée pour être bien comprise par Google."],
+   ["Mots-clés locaux", "Nous identifions ensemble les mots que vos clients tapent vraiment (votre métier + votre ville) et je les intègre naturellement dans vos textes."],
+-  ["Fiche Google Business", "Création ou refonte de votre fiche : horaires, photos, description, catégories. C'est elle qui vous fait apparaître sur Google Maps."],
++  ["Fiche Google Business", "Accompagnement à la création ou à l'optimisation de votre fiche : horaires, photos, description, catégories. C'est elle qui vous fait apparaître sur Google Maps."],
+ ];
+ const MAINT = [
+   ["Hébergement", "Votre site est hébergé, rapide et sécurisé. Vous n'avez rien à gérer."],
+-  ["Mises à jour", "Les mises à jour techniques et de sécurité sont faites pour vous."],
+-  ["Petites modifications", "Un horaire, une photo, une actualité : envoyez-moi un message, je m'en occupe."],
++  ["Mises à jour et sécurité", "Les mises à jour techniques sont faites pour vous, et le site est surveillé."],
++  ["Petites modifications", "Un horaire, une photo, une actualité : envoyez-moi un message, je m'en occupe, dans une limite définie au devis."],
+   ["Sauvegardes", "Des sauvegardes régulières pour ne jamais rien perdre."],
+ ];
+ 
+@@ -45,7 +45,7 @@ function Page() {
+         <div className="mx-auto max-w-5xl">
+           <Reveal className="mb-10">
+             <h2 className="text-3xl font-semibold text-foreground">Le référencement local</h2>
+-            <p className="mt-3 max-w-2xl text-muted-foreground">Inclus dans l'offre <Link to="/creation-site-vitrine" className="font-semibold text-primary hover:underline">Vitrine + Référencement local, à partir de 1 800 €</Link>.</p>
++            <p className="mt-3 max-w-2xl text-muted-foreground">Inclus dans l'offre <Link to="/creation-site-vitrine" className="font-semibold text-primary hover:underline">Visibilité, à partir de 1 800 €</Link>. Pour les clients de Valence, de la Drôme, de l'Ardèche et partout en France, à distance. Aucun positionnement sur Google ne peut être garanti : je mets en place les bonnes pratiques pour vous donner les meilleures chances.</p>
+           </Reveal>
+           <Block items={SEO} />
+         </div>
