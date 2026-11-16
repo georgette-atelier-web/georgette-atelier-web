@@ -31,16 +31,10 @@ afterEach(cleanup);
 // Rule from Anna: the 40 €/month maintenance must be presented as optional —
 // a client may keep their site without subscribing to it.
 describe("Maintenance is optional", () => {
-  it("states it on the offers page, both in the card and below the grid", async () => {
+  it("states it in the maintenance card on the offers page", async () => {
     renderPage("/creation-site-vitrine");
 
-    expect(
-      await screen.findByText(
-        /est facultative : vous pouvez conserver votre site sans souscrire à cette prestation/i,
-      ),
-    ).toBeInTheDocument();
-
-    const card = screen.getByRole("heading", { name: /^Maintenance$/ }).closest("article");
+    const card = (await screen.findByRole("heading", { name: /^Maintenance$/ })).closest("article");
     expect(card).not.toBeNull();
     expect(within(card as HTMLElement).getByText(/conserver votre site sans souscrire/i)).toBeInTheDocument();
   });

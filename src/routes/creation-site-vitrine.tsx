@@ -40,9 +40,6 @@ function Page() {
               </Reveal>
             ))}
           </div>
-          <p className="mx-auto mt-8 max-w-3xl rounded-2xl border border-dashed bg-background p-5 text-center text-sm font-semibold text-foreground">
-            La maintenance à 40 €/mois est facultative : vous pouvez conserver votre site sans souscrire à cette prestation.
-          </p>
           <Reveal className="mx-auto mt-10 max-w-3xl rounded-2xl border bg-card p-8 text-center">
             <h2 className="text-2xl font-semibold text-foreground">Chaque projet est différent</h2>
             <p className="mt-3 text-muted-foreground">Besoin d'une page en plus, d'une boutique simple ou d'un accompagnement particulier ? Je vous prépare une proposition adaptée.</p>
