@@ -38,12 +38,4 @@ describe("Maintenance is optional", () => {
     expect(card).not.toBeNull();
     expect(within(card as HTMLElement).getByText(/conserver votre site sans souscrire/i)).toBeInTheDocument();
   });
-
-  it("states it on the referencing & maintenance page", async () => {
-    renderPage("/referencement-maintenance");
-
-    expect(
-      await screen.findByText(/cette prestation est facultative : vous pouvez conserver votre site sans la souscrire/i),
-    ).toBeInTheDocument();
-  });
 });

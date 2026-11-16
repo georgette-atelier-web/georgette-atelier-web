@@ -55,9 +55,6 @@ function Page() {
           <Reveal className="mb-10">
             <h2 className="text-3xl font-semibold text-foreground">La maintenance mensuelle</h2>
             <p className="mt-3 max-w-2xl text-muted-foreground">À partir de 40 €/mois, sans engagement de longue durée. Vous restez propriétaire de votre site.</p>
-            <p className="mt-3 max-w-2xl rounded-2xl border border-dashed bg-background p-5 font-semibold text-foreground">
-              Cette prestation est facultative : vous pouvez conserver votre site sans la souscrire et gérer vous-même son hébergement et ses mises à jour.
-            </p>
           </Reveal>
           <Block items={MAINT} />
         </div>
