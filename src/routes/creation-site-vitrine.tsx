@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 import { SiteLayout, SectionTitle, PageHero, pageHead, Steps, CtaBand, btn } from "@/components/site";
 
 const TITLE = "Création de site vitrine à prix fixe | Georgette, atelier web";
-const DESC = "Site vitrine pour indépendant, artisan ou commerce : offre Essentielle dès 1 000 €, Visibilité dès 1 800 €, maintenance dès 40 €/mois. Drôme et Ardèche.";
+const DESC = "Site vitrine pour indépendant, artisan ou commerce : offre Essentielle dès 900 €, Visibilité dès 1 500 €, maintenance dès 40 €/mois. Drôme et Ardèche.";
 
 export const Route = createFileRoute("/creation-site-vitrine")({
   head: () => pageHead("/creation-site-vitrine", TITLE, DESC),
@@ -11,8 +11,8 @@ export const Route = createFileRoute("/creation-site-vitrine")({
 });
 
 const OFFERS = [
-  { t: "Essentielle", p: "1 000 €", u: "", f: ["3 à 5 pages", "Adapté au mobile et à l'ordinateur", "Formulaire de contact", "Mise en ligne incluse"], hl: false, note: "" },
-  { t: "Visibilité", p: "1 800 €", u: "", f: ["Tout le contenu de l'offre Essentielle", "Optimisation pour Google", "Création ou refonte de la fiche Google Business", "Mots-clés locaux"], hl: true, note: "Aucun positionnement sur Google ne peut être garanti." },
+  { t: "Essentielle", p: "900 €", u: "", f: ["3 à 5 pages", "Adapté au mobile et à l'ordinateur", "Formulaire de contact", "Mise en ligne incluse"], hl: false, note: "" },
+  { t: "Visibilité", p: "1 500 €", u: "", f: ["Tout le contenu de l'offre Essentielle", "Optimisation pour Google", "Création ou refonte de la fiche Google Business", "Mots-clés locaux"], hl: true, note: "Aucun positionnement sur Google ne peut être garanti." },
   { t: "Maintenance", p: "40 €", u: "/mois", f: ["Hébergement", "Mises à jour", "Petites modifications de contenu, dans une limite définie au devis", "Sauvegardes régulières"], hl: false, note: "" },
 ];
 

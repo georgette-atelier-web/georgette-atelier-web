@@ -45,7 +45,7 @@ function Page() {
         <div className="mx-auto max-w-5xl">
           <Reveal className="mb-10">
             <h2 className="text-3xl font-semibold text-foreground">Le référencement local</h2>
-            <p className="mt-3 max-w-2xl text-muted-foreground">Inclus dans l'<Link to="/creation-site-vitrine" className="font-semibold text-primary hover:underline">offre Visibilité, à partir de 1 800 €</Link>. Pour les entreprises de la Drôme, de l'Ardèche et partout en France à distance. Aucun positionnement sur Google ne peut être garanti.</p>
+            <p className="mt-3 max-w-2xl text-muted-foreground">Inclus dans l'<Link to="/creation-site-vitrine" className="font-semibold text-primary hover:underline">offre Visibilité, à partir de 1 500 €</Link>. Pour les entreprises de la Drôme, de l'Ardèche et partout en France à distance. Aucun positionnement sur Google ne peut être garanti.</p>
           </Reveal>
           <Block items={SEO} />
         </div>

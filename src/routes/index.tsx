@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { SiteLayout, SectionTitle, pageHead, btn, BENEFITS, AUDIENCES, WHY, CardGrid, SERVICES, PROJECTS, Steps, Portrait, CtaBand, EMAIL, LINKEDIN, SITE } from "@/components/site";
 
 const TITLE = "Création de site internet pour artisans et indépendants | Georgette";
-const DESC = "Création de site internet pour artisans, commerçants, indépendants et petites entreprises en Drôme et en Ardèche. Dès 1 000 €, devis gratuit.";
+const DESC = "Création de site internet pour artisans, commerçants, indépendants et petites entreprises en Drôme et en Ardèche. Dès 900 €, devis gratuit.";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -16,7 +16,7 @@ const JSON_LD = {
   url: `${SITE}/`,
   image: `${SITE}/apple-touch-icon.png`,
   logo: `${SITE}/apple-touch-icon.png`,
-  priceRange: "À partir de 1 000 €",
+  priceRange: "À partir de 900 €",
   areaServed: [
     { "@type": "AdministrativeArea", name: "Drôme" },
     { "@type": "AdministrativeArea", name: "Ardèche" },
@@ -25,8 +25,8 @@ const JSON_LD = {
   founder: { "@type": "Person", name: "Anna Bruyère", jobTitle: "Développeuse web, fondatrice de Georgette" },
   sameAs: [LINKEDIN],
   makesOffer: [
-    { "@type": "Offer", name: "Offre Essentielle", price: "1000", priceCurrency: "EUR" },
-    { "@type": "Offer", name: "Offre Visibilité", price: "1800", priceCurrency: "EUR" },
+    { "@type": "Offer", name: "Offre Essentielle", price: "900", priceCurrency: "EUR" },
+    { "@type": "Offer", name: "Offre Visibilité", price: "1500", priceCurrency: "EUR" },
     { "@type": "Offer", name: "Maintenance", priceSpecification: { "@type": "UnitPriceSpecification", price: "40", priceCurrency: "EUR", unitText: "mois" } },
   ],
   knowsAbout: ["Création de site vitrine", "Référencement local", "Google Business Profile", "Maintenance de site web"],
@@ -65,7 +65,7 @@ function Index() {
             <Link to="/creation-site-vitrine" className="inline-flex items-center justify-center rounded-full border-2 border-primary px-7 py-3 font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground">Découvrir les offres</Link>
             <Link to="/realisations" className="font-semibold text-primary underline-offset-4 hover:underline">Voir mes réalisations →</Link>
           </div>
-          <p className="mt-8 text-sm font-semibold text-muted-foreground">À partir de 1 000 € · Interlocutrice unique · Devis gratuit</p>
+          <p className="mt-8 text-sm font-semibold text-muted-foreground">À partir de 900 € · Interlocutrice unique · Devis gratuit</p>
         </div>
       </section>
 
