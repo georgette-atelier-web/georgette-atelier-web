@@ -134,10 +134,14 @@ export const SERVICES = [
 export const PROJECTS = [
   { id: "ecole-du-vieux-chateau", img: siteEcole, n: "École du Vieux Château", short: "Site d'une école : présentation de l'établissement, actualités et informations pratiques pour les familles.", url: "https://www.ecoleduvieuxchateau.fr",
     context: "Une école qui avait besoin d'un site clair pour présenter l'établissement aux familles et partager sa vie au fil de l'année.",
-    done: ["Présentation de l'établissement et de son équipe", "Rubrique d'actualités facile à mettre à jour", "Informations pratiques pour les familles (horaires, inscriptions, contact)", "Affichage soigné sur téléphone"] },
+    done: ["Présentation de l'établissement et de son équipe", "Rubrique d'actualités facile à mettre à jour", "Informations pratiques pour les familles (horaires, inscriptions, contact)", "Affichage soigné sur téléphone"],
+    quote: "Anna a su traduire l'esprit de notre école dans un site clair et chaleureux. Les familles nous disent qu'elles trouvent enfin toutes les informations facilement, et mettre à jour les actualités est devenu un jeu d'enfant.",
+    author: "La direction de l'école" },
   { id: "aetius-avocat", img: siteAetius, n: "Aetius Avocat", short: "Site d'un cabinet d'avocat : domaines d'intervention, présentation du cabinet et prise de contact simplifiée.", url: "https://aetius-avocat.fr",
     context: "Un cabinet d'avocat qui souhaitait inspirer confiance en ligne et permettre aux futurs clients de le contacter facilement.",
-    done: ["Présentation claire des domaines d'intervention", "Présentation du cabinet et de son approche", "Prise de contact simplifiée", "Design sobre et professionnel, rapide à charger"] },
+    done: ["Présentation claire des domaines d'intervention", "Présentation du cabinet et de son approche", "Prise de contact simplifiée", "Design sobre et professionnel, rapide à charger"],
+    quote: "Nous voulions un site à la hauteur de notre exigence, sans y passer nos soirées. Anna a tout pris en main, du premier échange à la mise en ligne, et le résultat inspire confiance à nos clients dès la première visite.",
+    author: "Le cabinet Aetius" },
 ] as const;
 
 export const STEPS = [

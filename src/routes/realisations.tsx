@@ -33,8 +33,8 @@ function Page() {
               <a href={r.url} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block font-semibold text-primary hover:underline">Voir le site en ligne →</a>
               <figure className="mt-8 rounded-2xl border-l-4 border-accent bg-background p-6">
                 <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">Témoignage</h3>
-                <blockquote className="mt-2 font-display text-lg italic text-foreground">« [Citation du client à compléter] »</blockquote>
-                <figcaption className="mt-2 text-sm text-muted-foreground">— [Nom, fonction]</figcaption>
+                <blockquote className="mt-2 font-display text-lg italic text-foreground">« {r.quote} »</blockquote>
+                <figcaption className="mt-2 text-sm text-muted-foreground">— {r.author}</figcaption>
               </figure>
             </Reveal>
           </div>
