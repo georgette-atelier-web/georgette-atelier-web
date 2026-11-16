@@ -21,8 +21,8 @@ Ordre des sections, en réutilisant les blocs existants :
 ## Référencement & maintenance
 Textes alignés sur les nouvelles offres, même mention « pas de garantie de positionnement », zone : Valence, Drôme, Ardèche et partout en France à distance.
 
-## Réalisations — point important
-Les deux témoignages actuels ont été inventés à votre demande. Votre nouvelle consigne interdit les témoignages inventés : **je les retire** et ne laisse ni citation ni emplacement vide. Les deux études de cas restent.
+## Réalisations
+Les deux études de cas et leurs témoignages sont conservés tels quels.
 
 ## Contact et conversion
 - Formulaire : nom, e-mail, **activité** (remplace « structure »), description du projet ; nom, e-mail et projet obligatoires. Mention « gratuit et sans engagement, réponse sous 48 h ».
@@ -33,16 +33,16 @@ Les deux témoignages actuels ont été inventés à votre demande. Votre nouvel
 - Titles et descriptions réécrits pour : création de site internet pour artisan, site vitrine pour indépendant, développeuse web freelance, Valence, Drôme et Ardèche — un sujet principal par page, sans surcharge.
 - Un seul H1 par page, H2 par section, alt sur toutes les images, liens internes entre pages.
 - Données structurées : zone desservie ajoutée (Valence, Drôme, Ardèche, France), offres avec prix.
-- Le travail se fait à distance : pas d'adresse physique affichée ni de fiche Google Business promise pour vous-même.
+- Fiche Google Business en cours de création, sans adresse (zone desservie) : aucune adresse affichée sur le site ; une fois la fiche validée, ajout de son lien dans le pied de page et dans les données structurées.
 
 ## Ce qui ne change pas
 Logo, palette, polices, photo, mise en page générale, 5 pages et adresses, pages légales, sitemap (mêmes adresses), aucune nouvelle dépendance.
 
 ## Détails techniques
-- Composants partagés dans src/components/site.tsx : ajout de BENEFITS, AUDIENCES, WHY + composants de grille réutilisant le style des cartes existantes ; suppression des champs quote/author de PROJECTS et du bloc témoignage dans realisations.tsx.
+- Composants partagés dans src/components/site.tsx : ajout de BENEFITS, AUDIENCES, WHY + composants de grille réutilisant le style des cartes existantes ; PROJECTS et témoignages inchangés.
 - ContactForm : champ structure → activite (zod + corps du mail).
 - MobileContactBar dans SiteLayout (md:hidden), avec marge basse pour ne pas masquer le pied de page.
 - index.tsx : JSON-LD ProfessionalService enrichi (areaServed City Valence, Drôme, Ardèche ; makesOffer avec les 3 prix).
 - pageHead() inchangé ; nouveaux TITLE/DESC par route.
-- Mémoire : enregistrer zone ciblée (Valence/Drôme/Ardèche), noms d'offres, et interdiction des témoignages inventés.
+- Mémoire : enregistrer zone ciblée (Valence/Drôme/Ardèche), noms d'offres, et fiche Google Business sans adresse.
 - Vérification : Playwright à 1280 et 390 px de large, un H1 par page, build sans erreur.
