@@ -34,10 +34,21 @@ const JSON_LD = {
   knowsAbout: ["Création de site vitrine", "Référencement local", "Google Business Profile", "Maintenance de site web"],
 };
 
+const WEBSITE_LD = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Georgette — atelier web",
+  alternateName: ["Georgette atelier web", "Georgette"],
+  url: `${SITE}/`,
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     ...pageHead("/", TITLE, DESC),
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(JSON_LD) }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(WEBSITE_LD) },
+      { type: "application/ld+json", children: JSON.stringify(JSON_LD) },
+    ],
   }),
   component: Index,
 });
