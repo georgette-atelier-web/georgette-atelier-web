@@ -19,7 +19,7 @@ const OFFERS = [
 function Page() {
   return (
     <SiteLayout>
-      <PageHero kicker="Offres et services" title="Création de site vitrine à prix fixe" intro="Des tarifs clairs, sans surprise. Chaque projet fait l'objet d'un devis détaillé et gratuit." />
+      <PageHero kicker="Offres et services" title="Création de site vitrine à prix fixe" intro="La création de votre site internet à prix fixe : des tarifs clairs, sans surprise. Chaque projet fait l'objet d'un devis détaillé et gratuit." />
       <section className="px-5 pb-24">
         <div className="mx-auto max-w-6xl">
           <h2 className="sr-only">Nos trois offres</h2>

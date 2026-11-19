@@ -13,3 +13,4 @@
 - [ ] Attendu : citations des témoignages (école et Aetius)
 - [ ] Vérifier que la boîte contact@georgette-atelier-web.fr reçoit bien les messages
 - [x] Illustration de l'accueil sous « À partir de 900 € » : version plus originale (bouledogue à lunettes à son bureau)
+- [x] Référencement C : expressions, ancrage Drôme/Ardèche, Sarras & Lyon, FAQ zone

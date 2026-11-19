@@ -190,12 +190,12 @@ export function CardGrid({ items, cols = "md:grid-cols-3", tone = "bg-background
 
 export const PROJECTS = [
   { id: "ecole-du-vieux-chateau", img: siteEcole, n: "École du Vieux Château", short: "Site d'une école : présentation de l'établissement, actualités et informations pratiques pour les familles.", url: "https://www.ecoleduvieuxchateau.fr",
-    context: "Une école qui avait besoin d'un site clair pour présenter l'établissement aux familles et partager sa vie au fil de l'année.",
+    context: "Une école de Sarras, en Ardèche, qui avait besoin d'un site clair pour présenter l'établissement aux familles et partager sa vie au fil de l'année.",
     done: ["Présentation de l'établissement et de son équipe", "Rubrique d'actualités facile à mettre à jour", "Informations pratiques pour les familles (horaires, inscriptions, contact)", "Affichage soigné sur téléphone"],
     quote: "Anna a su traduire l'esprit de notre école dans un site clair et chaleureux. Les familles nous disent qu'elles trouvent enfin toutes les informations facilement, et mettre à jour les actualités est devenu un jeu d'enfant.",
     author: "La direction de l'école" },
   { id: "aetius-avocat", img: siteAetius, n: "Aetius Avocat", short: "Site d'un cabinet d'avocat : domaines d'intervention, présentation du cabinet et prise de contact simplifiée.", url: "https://aetius-avocat.fr",
-    context: "Un cabinet d'avocat qui souhaitait inspirer confiance en ligne et permettre aux futurs clients de le contacter facilement.",
+    context: "Un cabinet d'avocat lyonnais qui souhaitait inspirer confiance en ligne et permettre aux futurs clients de le contacter facilement.",
     done: ["Présentation claire des domaines d'intervention", "Présentation du cabinet et de son approche", "Prise de contact simplifiée", "Design sobre et professionnel, rapide à charger"],
     quote: "Nous voulions un site à la hauteur de notre exigence, sans y passer nos soirées. Anna a tout pris en main, du premier échange à la mise en ligne, et le résultat inspire confiance à nos clients dès la première visite.",
     author: "Le cabinet Aetius" },
@@ -234,6 +234,7 @@ export function Portrait() {
 }
 
 export const FAQ = [
+  ["Travaillez-vous uniquement en Drôme et en Ardèche ?", "Non. Je suis basée entre Drôme et Ardèche et j'accompagne volontiers les entreprises de la région, mais je réalise aussi la création de sites internet à distance partout en France, par téléphone, visio et e-mail."],
   ["Combien de temps faut-il pour créer mon site vitrine ?", "En moyenne, il faut compter entre 2 et 4 semaines à partir du moment où nous validons le devis et rassemblons vos éléments (textes, photos, logo). Le délai dépend surtout de votre réactivité pour relire et valider les étapes."],
   ["Le site m'appartient-il à 100 % ?", "Oui, absolument. Vous êtes l'unique propriétaire de votre nom de domaine, de vos contenus et du site. Aucun abonnement caché, aucun piège : vous êtes totalement libre."],
   ["Dois-je fournir moi-même les textes et les photos ?", "Si vous avez déjà des photos et des textes, je les intègre et les optimise pour le web. Si vous partez de zéro, pas d'inquiétude : je vous guide avec une trame simple pour poser vos idées, et je reformule pour que vos pages soient claires et agréables à lire."],

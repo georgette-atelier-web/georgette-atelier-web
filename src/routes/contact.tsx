@@ -20,7 +20,7 @@ function Page() {
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">À propos et contact</p>
             <h1 className="mt-3 text-4xl font-semibold text-foreground sm:text-5xl">Bonjour, je suis Anna Bruyère</h1>
             <div className="mt-6 space-y-4 leading-relaxed text-muted-foreground">
-              <p>Développeuse web depuis 2020, j'ai fondé Georgette, un atelier web qui accompagne les petites structures — artisans, commerçants, indépendants et petites entreprises — qui veulent un site sérieux sans se perdre dans la technique.</p>
+              <p>Développeuse web depuis 2020, j'ai fondé Georgette, un atelier web qui accompagne les petites structures — artisans, commerçants, indépendants et petites entreprises — qui veulent un site sérieux sans se perdre dans la technique. Basée entre Drôme et Ardèche, je travaille aussi à distance partout en France.</p>
               <p>Mon approche : écouter, simplifier, livrer un site rapide et facile à comprendre pour vos visiteurs. Vous avez une seule interlocutrice du premier échange à la mise en ligne, et après.</p>
             </div>
             <a href="#devis" className={`${btn} mt-8`}>Demander un devis gratuit</a>

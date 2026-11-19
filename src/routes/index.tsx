@@ -72,7 +72,7 @@ function Index() {
         <div className="relative mx-auto max-w-4xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Atelier web en France</p>
           <h1 className="mt-5 text-4xl font-semibold leading-tight text-foreground sm:text-6xl">Un site qui attire vos clients et inspire confiance</h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">Artisans, commerçants, indépendants et petites entreprises : je crée votre site vitrine, clair, rapide et bien référencé, en Drôme, en Ardèche et partout en France à distance.</p>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">Artisans, commerçants, indépendants et petites entreprises : je m'occupe de la création de votre site internet : un site vitrine clair, rapide et bien référencé, en Drôme, en Ardèche et partout en France à distance.</p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link to="/contact" className={btn}>Discutons de votre projet</Link>
             <Link to="/creation-site-vitrine" className="inline-flex items-center justify-center rounded-full border-2 border-primary px-7 py-3 font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground">Découvrir les offres</Link>
@@ -182,7 +182,7 @@ function Index() {
           <Reveal delay={120}>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">À propos</p>
             <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">Bonjour, je suis Anna Bruyère</h2>
-            <p className="mt-6 leading-relaxed text-muted-foreground">Développeuse web depuis 2020, j'ai fondé Georgette, un atelier web qui accompagne les petites structures — artisans, commerçants, indépendants et petites entreprises — qui veulent un site sérieux sans se perdre dans la technique.</p>
+            <p className="mt-6 leading-relaxed text-muted-foreground">Développeuse web depuis 2020, j'ai fondé Georgette, un atelier web qui accompagne les petites structures — artisans, commerçants, indépendants et petites entreprises — qui veulent un site sérieux sans se perdre dans la technique. Basée entre Drôme et Ardèche, je travaille aussi à distance partout en France.</p>
             <Link to="/contact" className="mt-6 inline-block font-semibold text-primary hover:underline">En savoir plus sur moi →</Link>
           </Reveal>
         </div>
